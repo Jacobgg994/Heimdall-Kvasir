@@ -1,0 +1,14 @@
+# Machine-specific settings (paths differ per machine)
+.claude/settings.local.json
+.claude/.mcp.json
+
+# Sensitive
+.env
+.env.*
+credentials*
+*.key
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
