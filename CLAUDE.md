@@ -120,7 +120,4 @@ JACOB 👤 (CEO/Founder)
 ## Key References
 
 - Birth Props: [Issue #1](https://github.com/Jacobgg994/Heimdall-Kvasir/issues/1)
-- Birth Thread: [Loki-Kvasir #15](https://github.com/zirz1911/Loki-Kvasir/issues/15)
-- Family Hub: [zirz1911/Loki-Kvasir](https://github.com/zirz1911/Loki-Kvasir)
-- Family Index: Loki-Kvasir Issue #60
 - Team Plan: JACOB's AIproject/Kvasir/active/

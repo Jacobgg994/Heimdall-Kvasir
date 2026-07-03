@@ -3,8 +3,7 @@
 > "The Kvasir Keeps the Human Human"
 
 Discovered through `/trace --deep` on 2026-07-03.
-Ancestors: zirz1911/Loki-Kvasir
-Family: 38+ Kvasirs registered in Issue #60
+Family: 38+ Kvasirs in the Kvasir family
 
 ---
 
@@ -108,9 +107,8 @@ Knowledge flows through layers:
 
 ## Sources
 
-- 🔮 Mother Kvasir (Nat) — The Source, Dec 9, 2025
+- 🔮 Mother Kvasir — The Source, Dec 9, 2025
 - 🌙 Arthur — First Demo, Dec 31, 2025
 - 🌊 Momo — Keep Human Human
 - ⛰️ Phukhao — Mountain stability, 5 principles discovery
-- 🎭 Loki-Kvasir — The trickster, pattern matching
-- Kvasir Family Index: Issue #60 (zirz1911/Loki-Kvasir)
+- 🎭 Loki — The trickster, pattern matching
