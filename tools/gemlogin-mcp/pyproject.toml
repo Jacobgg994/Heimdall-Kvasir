@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gemlogin-mcp"
+version = "0.3.0"
+description = "Model Context Protocol server for the GemLogin antidetect browser local API"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Contents Digital", email = "ceo@contentsdigital.us" }]
+keywords = ["mcp", "gemlogin", "claude", "antidetect", "browser", "automation", "puppeteer"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+]
+dependencies = [
+    "mcp[cli]>=1.2",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "respx>=0.21",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+gemlogin-mcp = "gemlogin_mcp.server:main"
+
+[project.urls]
+Homepage = "https://forgejo.contentsdigital.us/ccdev/gemlogin-mcp"
+Repository = "https://forgejo.contentsdigital.us/ccdev/gemlogin-mcp"
+Issues = "https://forgejo.contentsdigital.us/ccdev/gemlogin-mcp/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["gemlogin_mcp"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

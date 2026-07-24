@@ -1,0 +1,1766 @@
+{
+  "extVersion": 2,
+  "name": "(Facebook) Post Reels",
+  "icon": "riGlobalLine",
+  "table": [],
+  "version": "1.0.0",
+  "drawflow": {
+    "nodes": [
+      {
+        "id": "yax8txd",
+        "type": "BlockBasic",
+        "label": "trigger",
+        "initialized": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riPlayLine",
+          "type": "manual",
+          "interval": 60,
+          "delay": 5,
+          "date": "",
+          "time": "00:00",
+          "url": "",
+          "shortcut": "",
+          "activeInInput": false,
+          "isUrlRegex": false,
+          "days": [],
+          "contextMenuName": "",
+          "contextTypes": [],
+          "parameters": [
+            {
+              "id": "Q9Wx",
+              "name": "",
+              "label": "Post Reels",
+              "type": "divider",
+              "description": "",
+              "defaultValue": "",
+              "placeholder": "",
+              "data": {
+                "thickness": 1,
+                "marginTop": 8,
+                "marginBottom": 8,
+                "label": "Post Reels"
+              }
+            },
+            {
+              "id": "mEr2",
+              "name": "postCount",
+              "label": "Post Count",
+              "type": "number",
+              "description": "Number of Reels to post",
+              "defaultValue": "1",
+              "placeholder": "",
+              "data": {
+                "required": false,
+                "min": 1,
+                "max": 9999,
+                "step": 1
+              }
+            },
+            {
+              "id": "wDXi",
+              "name": "",
+              "label": "Caption",
+              "type": "divider",
+              "description": "",
+              "defaultValue": "",
+              "placeholder": "",
+              "data": {
+                "thickness": 1,
+                "marginTop": 8,
+                "marginBottom": 8,
+                "label": "Caption"
+              }
+            },
+            {
+              "id": "LRfh",
+              "name": "useVideoFilenameAsCaption",
+              "label": "Use Video Filename as Caption",
+              "type": "checkbox",
+              "description": "Auto-use video filename as caption",
+              "defaultValue": true,
+              "placeholder": "",
+              "data": {
+                "required": false
+              }
+            },
+            {
+              "id": "kx6y",
+              "name": "captionFolderPath",
+              "label": "Caption Folder",
+              "type": "filepath",
+              "description": "Folder containing .txt files",
+              "defaultValue": "",
+              "placeholder": "D:\\captions\\",
+              "data": {
+                "required": true
+              }
+            },
+            {
+              "id": "NeYp",
+              "name": "",
+              "label": "Media Source",
+              "type": "divider",
+              "description": "",
+              "defaultValue": "",
+              "placeholder": "",
+              "data": {
+                "thickness": 1,
+                "marginTop": 8,
+                "marginBottom": 8,
+                "label": "Media Source"
+              }
+            },
+            {
+              "id": "8sFU",
+              "name": "",
+              "label": "Please select only one option",
+              "type": "label",
+              "description": "",
+              "defaultValue": "",
+              "placeholder": "",
+              "data": {
+                "text": "Please select only one option",
+                "variant": "info"
+              }
+            },
+            {
+              "id": "68dp",
+              "name": "useMediaFromFolder",
+              "label": "Use Media from Folder",
+              "type": "checkbox",
+              "description": "Pick random video from folder",
+              "defaultValue": true,
+              "placeholder": "",
+              "data": {
+                "required": false
+              }
+            },
+            {
+              "id": "KxAR",
+              "name": "mediaFolderPath",
+              "label": "Media Folder",
+              "type": "string",
+              "description": "Folder containing video files",
+              "defaultValue": "",
+              "placeholder": "D:\\videos\\",
+              "data": {
+                "required": false
+              }
+            },
+            {
+              "id": "MaQI",
+              "name": "useCustomMedia",
+              "label": "Use Custom Media",
+              "type": "checkbox",
+              "description": "Use a specific video file",
+              "defaultValue": false,
+              "placeholder": "",
+              "data": {
+                "required": false
+              }
+            },
+            {
+              "id": "4UZj",
+              "name": "customMediaPath",
+              "label": "Custom Media Path",
+              "type": "string",
+              "description": "Path to video file",
+              "defaultValue": "",
+              "placeholder": "D:\\video.mp4",
+              "data": {
+                "required": false
+              }
+            },
+            {
+              "id": "WQzY",
+              "name": "",
+              "label": "Output",
+              "type": "divider",
+              "description": "",
+              "defaultValue": "",
+              "placeholder": "",
+              "data": {
+                "thickness": 1,
+                "marginTop": 8,
+                "marginBottom": 8,
+                "label": "Output"
+              }
+            },
+            {
+              "id": "WHcJ",
+              "name": "output_link_path",
+              "label": "Output Link File",
+              "type": "filepath",
+              "description": "Save posted Reel permalinks",
+              "defaultValue": "",
+              "placeholder": "D:\\output\\links.txt",
+              "data": {
+                "required": true
+              }
+            }
+          ],
+          "preferParamsInTab": false,
+          "observeElement": false
+        }
+      },
+      {
+        "id": "tfrv2jf",
+        "type": "BlockBasicWithFallback",
+        "label": "loop-data",
+        "initialized": false,
+        "position": {
+          "x": 280,
+          "y": 0
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Loop postCount",
+          "icon": "riRefreshLine",
+          "loopId": "bmkp7v",
+          "maxLoop": 0,
+          "toNumber": "{{variables.postCount}}",
+          "fromNumber": 1,
+          "startIndex": 0,
+          "loopData": "[]",
+          "variableName": "",
+          "referenceKey": "",
+          "reverseLoop": false,
+          "elementSelector": "",
+          "waitForSelector": false,
+          "waitSelectorTimeout": 5000,
+          "resumeLastWorkflow": false,
+          "loopThrough": "numbers",
+          "delay": 0
+        }
+      },
+      {
+        "id": "sy9ortg",
+        "type": "BlockBasicWithFallback",
+        "label": "open-url",
+        "initialized": false,
+        "position": {
+          "x": 280,
+          "y": 120
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Open Reels creator",
+          "icon": "riLink",
+          "url": "https://www.facebook.com/reels/create/",
+          "userAgent": "",
+          "waitTabLoaded": false,
+          "waitForNavigation": "domcontentloaded",
+          "customUserAgent": false,
+          "newTab": false,
+          "active": true,
+          "delay": "5000"
+        }
+      },
+      {
+        "id": "0hlphyk",
+        "type": "BlockBasicWithFallback",
+        "label": "tab-loaded",
+        "initialized": false,
+        "position": {
+          "x": 560,
+          "y": 120
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Wait for Reels creator",
+          "icon": "riCheckLine",
+          "delay": 200,
+          "timeout": 30000
+        }
+      },
+      {
+        "id": "f1ft85e",
+        "type": "BlockConditions",
+        "label": "conditions",
+        "initialized": false,
+        "position": {
+          "x": 560,
+          "y": 240
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riAB",
+          "conditions": [
+            {
+              "id": "d2gLnvJHOLxXjL9BCqx2q",
+              "name": "useVideoFilenameAsCaption",
+              "conditions": [
+                {
+                  "id": "group-d2gLnvJHOLxXjL9BCqx2q",
+                  "conditions": [
+                    {
+                      "id": "rule-d2gLnvJHOLxXjL9BCqx2q",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.useVideoFilenameAsCaption}}"
+                          },
+                          "id": "NWVbFSUPAYia0J1hzVn4T"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq",
+                          "id": "cSaIOMy3qMgek6dIjRk2c"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "true"
+                          },
+                          "id": "iE6k3_-ykcetqtnnxF_s0"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "retryConditions": false,
+          "retryCount": 10,
+          "retryTimeout": 1000,
+          "delay": 0
+        }
+      },
+      {
+        "id": "wy59zf1",
+        "type": "BlockBasicWithFallback",
+        "label": "read-file-text",
+        "initialized": false,
+        "position": {
+          "x": 840,
+          "y": 240
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Read video filename as caption",
+          "icon": "riFileTextLine",
+          "path": "{{variables.mediaFile}}",
+          "delimiter": "",
+          "assignVariable": true,
+          "variableName": "caption",
+          "randomEnable": true,
+          "deleteLine": true,
+          "mode": "aline",
+          "delay": 0
+        }
+      },
+      {
+        "id": "l99di3t",
+        "type": "BlockBasicWithFallback",
+        "label": "read-file-text",
+        "initialized": false,
+        "position": {
+          "x": 840,
+          "y": 360
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Read caption from file",
+          "icon": "riFileTextLine",
+          "path": "{{variables.captionFolderPath}}",
+          "delimiter": "",
+          "assignVariable": true,
+          "variableName": "caption",
+          "randomEnable": true,
+          "deleteLine": true,
+          "mode": "aline",
+          "delay": 0
+        }
+      },
+      {
+        "id": "r1lrebm",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 840,
+          "y": 480
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click Add video (VERIFIED)",
+          "icon": "riCursorLine",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//*[contains(text(),'Add video')]",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 2000,
+          "humanClick": true,
+          "x": "",
+          "y": ""
+        }
+      },
+      {
+        "id": "th524zl",
+        "type": "BlockBasicWithFallback",
+        "label": "press-key",
+        "initialized": false,
+        "position": {
+          "x": 1120,
+          "y": 480
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Type caption",
+          "icon": "riKeyboardLine",
+          "key": "{{variables.caption}}",
+          "delay": 500
+        }
+      },
+      {
+        "id": "jkpzqx5",
+        "type": "BlockConditions",
+        "label": "conditions",
+        "initialized": false,
+        "position": {
+          "x": 1120,
+          "y": 240
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riAB",
+          "conditions": [
+            {
+              "id": "73E12sKMjTZDI1FlCaA_6",
+              "name": "useMediaFromFolder",
+              "conditions": [
+                {
+                  "id": "group-73E12sKMjTZDI1FlCaA_6",
+                  "conditions": [
+                    {
+                      "id": "rule-73E12sKMjTZDI1FlCaA_6",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.useMediaFromFolder}}"
+                          },
+                          "id": "JO3zgetu4uiV7sVOZa7Jc"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq",
+                          "id": "8pZ_asQh2uiw6xb-WK83i"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "true"
+                          },
+                          "id": "UXB0PFdBxmBhHn0NjxFAC"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "8oyxP01vEEb1zSUjnLnOU",
+              "name": "useCustomMedia",
+              "conditions": [
+                {
+                  "id": "group-8oyxP01vEEb1zSUjnLnOU",
+                  "conditions": [
+                    {
+                      "id": "rule-8oyxP01vEEb1zSUjnLnOU",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.useCustomMedia}}"
+                          },
+                          "id": "SrJMZbxfNpduYfIXNwm4r"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq",
+                          "id": "a0NCSNL4zJmt-r-aJrDQV"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "true"
+                          },
+                          "id": "LJu2MTnXuqYvXrTkwAd4_"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "retryConditions": false,
+          "retryCount": 10,
+          "retryTimeout": 1000,
+          "delay": 0
+        }
+      },
+      {
+        "id": "1wl3eb9",
+        "type": "BlockBasicWithFallback",
+        "label": "get-file-path",
+        "initialized": false,
+        "position": {
+          "x": 1400,
+          "y": 240
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Get random media from folder",
+          "icon": "riFolderLine",
+          "assignVariable": true,
+          "variableName": "mediaFile",
+          "delay": 200
+        }
+      },
+      {
+        "id": "ujuyde9",
+        "type": "BlockBasicWithFallback",
+        "label": "upload-file",
+        "initialized": false,
+        "position": {
+          "x": 1400,
+          "y": 360
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Upload from folder",
+          "icon": "riUploadLine",
+          "findBy": "xpath",
+          "selector": "//input[@type='file' and contains(@accept,'video')]",
+          "filePath": "{{variables.mediaFile}}",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 30000,
+          "delay": 200
+        }
+      },
+      {
+        "id": "j6q2s9k",
+        "type": "BlockBasicWithFallback",
+        "label": "upload-file",
+        "initialized": false,
+        "position": {
+          "x": 1400,
+          "y": 480
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Upload custom media",
+          "icon": "riUploadLine",
+          "findBy": "xpath",
+          "selector": "//input[@type='file' and contains(@accept,'video')]",
+          "filePath": "{{variables.customMediaPath}}",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 30000,
+          "delay": 200
+        }
+      },
+      {
+        "id": "e6e94df",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 1680,
+          "y": 360
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click Add video",
+          "icon": "riCursorLine",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//*[contains(text(),'Add video')]",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 2000,
+          "humanClick": true,
+          "x": "",
+          "y": ""
+        }
+      },
+      {
+        "id": "lffs4o2",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 1680,
+          "y": 480
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click Upload video for Reel",
+          "icon": "riCursorLine",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//div[@role='button' and @aria-label='Upload video for Reel']",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 2000,
+          "humanClick": true,
+          "x": "",
+          "y": ""
+        }
+      },
+      {
+        "id": "fcmm9wg",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 1960,
+          "y": 360
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click Share (VERIFIED)",
+          "icon": "riCursorLine",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 15000,
+          "selector": "//div[@role='button' and @aria-label='Share']",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 3000,
+          "humanClick": true,
+          "x": "",
+          "y": ""
+        }
+      },
+      {
+        "id": "v5hsfkd",
+        "type": "BlockBasicWithFallback",
+        "label": "delay",
+        "initialized": false,
+        "position": {
+          "x": 1960,
+          "y": 480
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Wait for publish",
+          "icon": "riTimerLine",
+          "delay": 20000
+        }
+      },
+      {
+        "id": "2167utw",
+        "type": "BlockBasicWithFallback",
+        "label": "javascript-code",
+        "initialized": false,
+        "position": {
+          "x": 1960,
+          "y": 600
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Detect confirmation",
+          "icon": "riCodeBoxLine",
+          "code": "const c=document.querySelector('[aria-label=\"Share now\"]');return{state:c?'confirm':'published'};",
+          "assignVariable": true,
+          "variableName": "",
+          "delay": 200,
+          "timeout": 15000
+        }
+      },
+      {
+        "id": "7h0zewv",
+        "type": "BlockConditions",
+        "label": "conditions",
+        "initialized": false,
+        "position": {
+          "x": 2240,
+          "y": 600
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riAB",
+          "conditions": [
+            {
+              "id": "zgZEx3PyGzCX2rG6FmMjx",
+              "name": "need-confirm",
+              "conditions": [
+                {
+                  "id": "group-zgZEx3PyGzCX2rG6FmMjx",
+                  "conditions": [
+                    {
+                      "id": "rule-zgZEx3PyGzCX2rG6FmMjx",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.state}}"
+                          },
+                          "id": "buZbqu2n4mTzf0afSzRTq"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq",
+                          "id": "4xGCXOvT2vPSt2kc-TyhO"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "confirm"
+                          },
+                          "id": "efDczlXX_GfCU5PQVne_R"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "pce5BLRBwFQRcEDF1VMiH",
+              "name": "published",
+              "conditions": [
+                {
+                  "id": "group-pce5BLRBwFQRcEDF1VMiH",
+                  "conditions": [
+                    {
+                      "id": "rule-pce5BLRBwFQRcEDF1VMiH",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.state}}"
+                          },
+                          "id": "Uj_ix1pYBGsP4nfjq7jnr"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq",
+                          "id": "N5gPagfXJDlEyB3PF67Ly"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "published"
+                          },
+                          "id": "dz-lDJPvo7FmB4paO8G2e"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "retryConditions": false,
+          "retryCount": 10,
+          "retryTimeout": 1000,
+          "delay": 0
+        }
+      },
+      {
+        "id": "gu92yak",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 2240,
+          "y": 720
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click Share now",
+          "icon": "riCursorLine",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//div[@role='button' and @aria-label='Share now']",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 2000,
+          "humanClick": true,
+          "x": "",
+          "y": ""
+        }
+      },
+      {
+        "id": "0lmusx1",
+        "type": "BlockBasicWithFallback",
+        "label": "reload-tab",
+        "initialized": false,
+        "position": {
+          "x": 2520,
+          "y": 600
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Reload for new post",
+          "icon": "riRefreshLine",
+          "delay": 200
+        }
+      },
+      {
+        "id": "bpjqupg",
+        "type": "BlockBasicWithFallback",
+        "label": "delay",
+        "initialized": false,
+        "position": {
+          "x": 2520,
+          "y": 720
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Wait reload",
+          "icon": "riTimerLine",
+          "delay": 5000
+        }
+      },
+      {
+        "id": "wtznhls",
+        "type": "BlockBasicWithFallback",
+        "label": "javascript-code",
+        "initialized": false,
+        "position": {
+          "x": 2520,
+          "y": 840
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Get Reel permalink",
+          "icon": "riCodeBoxLine",
+          "code": "let u='';if(location.href.includes('/reel/'))u=location.href;if(!u){const l=document.querySelector('a[href*=\"/reel/\"]');if(l)u='https://www.facebook.com'+l.getAttribute('href').split('?')[0]}return{reel_url:u,found:u?'yes':'no'};",
+          "assignVariable": true,
+          "variableName": "",
+          "delay": 200,
+          "timeout": 15000
+        }
+      },
+      {
+        "id": "z61knuo",
+        "type": "BlockConditions",
+        "label": "conditions",
+        "initialized": false,
+        "position": {
+          "x": 2800,
+          "y": 840
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riAB",
+          "conditions": [
+            {
+              "id": "g7933k-P-_QfcvIvNOx4Y",
+              "name": "link-found",
+              "conditions": [
+                {
+                  "id": "group-g7933k-P-_QfcvIvNOx4Y",
+                  "conditions": [
+                    {
+                      "id": "rule-g7933k-P-_QfcvIvNOx4Y",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.found}}"
+                          },
+                          "id": "Ce96RbAz1FGd-DQqFvxaI"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq",
+                          "id": "71qlXaevQb8_2WCLc4vs4"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "yes"
+                          },
+                          "id": "li2lLCiQL0Te2mX7kKiO0"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "0y_nl80m_IMlTotEGyrA0",
+              "name": "link-missing",
+              "conditions": [
+                {
+                  "id": "group-0y_nl80m_IMlTotEGyrA0",
+                  "conditions": [
+                    {
+                      "id": "rule-0y_nl80m_IMlTotEGyrA0",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.found}}"
+                          },
+                          "id": "yrRIbmIvFynmXUnXreAJP"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq",
+                          "id": "8Y9Gme4-vtHcAL1eDjfbO"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "no"
+                          },
+                          "id": "CwXbOO7VXrWJ-dxcwwogi"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "retryConditions": false,
+          "retryCount": 10,
+          "retryTimeout": 1000,
+          "delay": 0
+        }
+      },
+      {
+        "id": "do0y1h8",
+        "type": "BlockBasicWithFallback",
+        "label": "file-action",
+        "initialized": false,
+        "position": {
+          "x": 2800,
+          "y": 960
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Save link",
+          "icon": "riFileTextLine",
+          "action": "Write",
+          "filePath": "{{variables.output_link_path}}",
+          "inputData": "{{variables.reel_url}}",
+          "delimiter": "",
+          "selectorType": "txt",
+          "writeMode": "append",
+          "appendMode": "newLine",
+          "deleteFileFolder": "",
+          "delay": 0
+        }
+      },
+      {
+        "id": "jakkr0v",
+        "type": "BlockLoopBreakpoint",
+        "label": "loop-breakpoint",
+        "initialized": false,
+        "position": {
+          "x": 3080,
+          "y": 0
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStopLine",
+          "loopId": "bmkp7v",
+          "clearLoop": false
+        }
+      },
+      {
+        "id": "edpmy72",
+        "type": "BlockBasic",
+        "label": "end",
+        "initialized": false,
+        "position": {
+          "x": 3360,
+          "y": 0
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStopCircleLine"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "vueflow__edge-yax8txd-tfrv2jf-4606sdo",
+        "type": "bezier",
+        "source": "yax8txd",
+        "target": "tfrv2jf",
+        "sourceHandle": "yax8txd-output-1",
+        "targetHandle": "tfrv2jf-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Start",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-tfrv2jf-sy9ortg-5gfeeju",
+        "type": "bezier",
+        "source": "tfrv2jf",
+        "target": "sy9ortg",
+        "sourceHandle": "tfrv2jf-output-1",
+        "targetHandle": "sy9ortg-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Post Reel",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-sy9ortg-0hlphyk-dh4ertn",
+        "type": "bezier",
+        "source": "sy9ortg",
+        "target": "0hlphyk",
+        "sourceHandle": "sy9ortg-output-1",
+        "targetHandle": "0hlphyk-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Page loaded",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-0hlphyk-f1ft85e-u0thxut",
+        "type": "bezier",
+        "source": "0hlphyk",
+        "target": "f1ft85e",
+        "sourceHandle": "0hlphyk-output-1",
+        "targetHandle": "f1ft85e-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Caption?",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-f1ft85e-wy59zf1-mzh4ya9",
+        "type": "bezier",
+        "source": "f1ft85e",
+        "target": "wy59zf1",
+        "sourceHandle": "f1ft85e-output-d2gLnvJHOLxXjL9BCqx2q",
+        "targetHandle": "wy59zf1-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Use filename",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-f1ft85e-l99di3t-xf5lnqr",
+        "type": "bezier",
+        "source": "f1ft85e",
+        "target": "l99di3t",
+        "sourceHandle": "f1ft85e-output-fallback",
+        "targetHandle": "l99di3t-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Use file",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-wy59zf1-r1lrebm-kz9fwot",
+        "type": "bezier",
+        "source": "wy59zf1",
+        "target": "r1lrebm",
+        "sourceHandle": "wy59zf1-output-1",
+        "targetHandle": "r1lrebm-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Caption ready",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-l99di3t-r1lrebm-nre43dr",
+        "type": "bezier",
+        "source": "l99di3t",
+        "target": "r1lrebm",
+        "sourceHandle": "l99di3t-output-1",
+        "targetHandle": "r1lrebm-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Caption ready",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-r1lrebm-th524zl-qq78xj4",
+        "type": "bezier",
+        "source": "r1lrebm",
+        "target": "th524zl",
+        "sourceHandle": "r1lrebm-output-1",
+        "targetHandle": "th524zl-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Type",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-th524zl-jkpzqx5-ngvhcv6",
+        "type": "bezier",
+        "source": "th524zl",
+        "target": "jkpzqx5",
+        "sourceHandle": "th524zl-output-1",
+        "targetHandle": "jkpzqx5-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Media?",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-jkpzqx5-1wl3eb9-8h8dh57",
+        "type": "bezier",
+        "source": "jkpzqx5",
+        "target": "1wl3eb9",
+        "sourceHandle": "jkpzqx5-output-73E12sKMjTZDI1FlCaA_6",
+        "targetHandle": "1wl3eb9-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Folder",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-jkpzqx5-j6q2s9k-z5hkmnq",
+        "type": "bezier",
+        "source": "jkpzqx5",
+        "target": "j6q2s9k",
+        "sourceHandle": "jkpzqx5-output-8oyxP01vEEb1zSUjnLnOU",
+        "targetHandle": "j6q2s9k-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Custom",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-1wl3eb9-ujuyde9-ohii3jp",
+        "type": "bezier",
+        "source": "1wl3eb9",
+        "target": "ujuyde9",
+        "sourceHandle": "1wl3eb9-output-1",
+        "targetHandle": "ujuyde9-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Upload folder",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-ujuyde9-e6e94df-08856v7",
+        "type": "bezier",
+        "source": "ujuyde9",
+        "target": "e6e94df",
+        "sourceHandle": "ujuyde9-output-1",
+        "targetHandle": "e6e94df-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Upload flow",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-j6q2s9k-e6e94df-ytcdr83",
+        "type": "bezier",
+        "source": "j6q2s9k",
+        "target": "e6e94df",
+        "sourceHandle": "j6q2s9k-output-1",
+        "targetHandle": "e6e94df-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Upload flow",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-e6e94df-lffs4o2-n1yarvw",
+        "type": "bezier",
+        "source": "e6e94df",
+        "target": "lffs4o2",
+        "sourceHandle": "e6e94df-output-1",
+        "targetHandle": "lffs4o2-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Upload btn",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-lffs4o2-fcmm9wg-qnycubh",
+        "type": "bezier",
+        "source": "lffs4o2",
+        "target": "fcmm9wg",
+        "sourceHandle": "lffs4o2-output-1",
+        "targetHandle": "fcmm9wg-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Share",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-fcmm9wg-v5hsfkd-vuunmew",
+        "type": "bezier",
+        "source": "fcmm9wg",
+        "target": "v5hsfkd",
+        "sourceHandle": "fcmm9wg-output-1",
+        "targetHandle": "v5hsfkd-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Publishing...",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-v5hsfkd-2167utw-n1sll2f",
+        "type": "bezier",
+        "source": "v5hsfkd",
+        "target": "2167utw",
+        "sourceHandle": "v5hsfkd-output-1",
+        "targetHandle": "2167utw-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Check",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-2167utw-7h0zewv-dnks5lk",
+        "type": "bezier",
+        "source": "2167utw",
+        "target": "7h0zewv",
+        "sourceHandle": "2167utw-output-1",
+        "targetHandle": "7h0zewv-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Route",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-7h0zewv-0lmusx1-fthrzbi",
+        "type": "bezier",
+        "source": "7h0zewv",
+        "target": "0lmusx1",
+        "sourceHandle": "7h0zewv-output-pce5BLRBwFQRcEDF1VMiH",
+        "targetHandle": "0lmusx1-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Published",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-7h0zewv-gu92yak-cw7hwgh",
+        "type": "bezier",
+        "source": "7h0zewv",
+        "target": "gu92yak",
+        "sourceHandle": "7h0zewv-output-zgZEx3PyGzCX2rG6FmMjx",
+        "targetHandle": "gu92yak-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Confirm needed",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-gu92yak-0lmusx1-g86q1jw",
+        "type": "bezier",
+        "source": "gu92yak",
+        "target": "0lmusx1",
+        "sourceHandle": "gu92yak-output-1",
+        "targetHandle": "0lmusx1-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Collect",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-0lmusx1-bpjqupg-p66bp4p",
+        "type": "bezier",
+        "source": "0lmusx1",
+        "target": "bpjqupg",
+        "sourceHandle": "0lmusx1-output-1",
+        "targetHandle": "bpjqupg-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Reloaded",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-bpjqupg-wtznhls-idak289",
+        "type": "bezier",
+        "source": "bpjqupg",
+        "target": "wtznhls",
+        "sourceHandle": "bpjqupg-output-1",
+        "targetHandle": "wtznhls-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Find link",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-wtznhls-z61knuo-9ylkudp",
+        "type": "bezier",
+        "source": "wtznhls",
+        "target": "z61knuo",
+        "sourceHandle": "wtznhls-output-1",
+        "targetHandle": "z61knuo-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Route",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-z61knuo-do0y1h8-31lcvj4",
+        "type": "bezier",
+        "source": "z61knuo",
+        "target": "do0y1h8",
+        "sourceHandle": "z61knuo-output-g7933k-P-_QfcvIvNOx4Y",
+        "targetHandle": "do0y1h8-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Found",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-z61knuo-jakkr0v-jsltkqr",
+        "type": "bezier",
+        "source": "z61knuo",
+        "target": "jakkr0v",
+        "sourceHandle": "z61knuo-output-0y_nl80m_IMlTotEGyrA0",
+        "targetHandle": "jakkr0v-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Not found",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-do0y1h8-jakkr0v-ofesacc",
+        "type": "bezier",
+        "source": "do0y1h8",
+        "target": "jakkr0v",
+        "sourceHandle": "do0y1h8-output-1",
+        "targetHandle": "jakkr0v-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Done ✓",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-jakkr0v-tfrv2jf-m4ab5qo",
+        "type": "bezier",
+        "source": "jakkr0v",
+        "target": "tfrv2jf",
+        "sourceHandle": "jakkr0v-output-1",
+        "targetHandle": "tfrv2jf-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Next",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-tfrv2jf-edpmy72-yw51uyx",
+        "type": "bezier",
+        "source": "tfrv2jf",
+        "target": "edpmy72",
+        "sourceHandle": "tfrv2jf-output-fallback",
+        "targetHandle": "edpmy72-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Done all",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      }
+    ]
+  },
+  "settings": {
+    "publicId": "",
+    "blockDelay": 0,
+    "saveLog": true,
+    "debugMode": false,
+    "restartTimes": 3,
+    "notification": true,
+    "execContext": "popup",
+    "reuseLastState": false,
+    "inputAutocomplete": true,
+    "onError": "stop-workflow",
+    "executedBlockOnWeb": false,
+    "insertDefaultColumn": false,
+    "defaultColumnName": "column"
+  },
+  "globalData": "",
+  "description": "Built by GemLogin Team: JACOB (CEO) | GEMMY (Automation Lead) | ARKA (Workflow Creator) | LUMI (Workflow Analyst) | HEIMDALL (QA Engineer) | JIMMY (COO)",
+  "trigger": {
+    "icon": "riPlayLine",
+    "disableBlock": false,
+    "description": "",
+    "type": "manual",
+    "interval": 60,
+    "delay": 5,
+    "date": "",
+    "time": "00:00",
+    "url": "",
+    "shortcut": "",
+    "activeInInput": false,
+    "isUrlRegex": false,
+    "days": [],
+    "contextMenuName": "",
+    "contextTypes": [],
+    "parameters": [
+      {
+        "id": "Q9Wx",
+        "name": "",
+        "label": "Post Reels",
+        "type": "divider",
+        "description": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "data": {
+          "thickness": 1,
+          "marginTop": 8,
+          "marginBottom": 8,
+          "label": "Post Reels"
+        }
+      },
+      {
+        "id": "mEr2",
+        "name": "postCount",
+        "label": "Post Count",
+        "type": "number",
+        "description": "Number of Reels to post",
+        "defaultValue": "1",
+        "placeholder": "",
+        "data": {
+          "required": false,
+          "min": 1,
+          "max": 9999,
+          "step": 1
+        }
+      },
+      {
+        "id": "wDXi",
+        "name": "",
+        "label": "Caption",
+        "type": "divider",
+        "description": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "data": {
+          "thickness": 1,
+          "marginTop": 8,
+          "marginBottom": 8,
+          "label": "Caption"
+        }
+      },
+      {
+        "id": "LRfh",
+        "name": "useVideoFilenameAsCaption",
+        "label": "Use Video Filename as Caption",
+        "type": "checkbox",
+        "description": "Auto-use video filename as caption",
+        "defaultValue": true,
+        "placeholder": "",
+        "data": {
+          "required": false
+        }
+      },
+      {
+        "id": "kx6y",
+        "name": "captionFolderPath",
+        "label": "Caption Folder",
+        "type": "filepath",
+        "description": "Folder containing .txt files",
+        "defaultValue": "",
+        "placeholder": "D:\\captions\\",
+        "data": {
+          "required": true
+        }
+      },
+      {
+        "id": "NeYp",
+        "name": "",
+        "label": "Media Source",
+        "type": "divider",
+        "description": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "data": {
+          "thickness": 1,
+          "marginTop": 8,
+          "marginBottom": 8,
+          "label": "Media Source"
+        }
+      },
+      {
+        "id": "8sFU",
+        "name": "",
+        "label": "Please select only one option",
+        "type": "label",
+        "description": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "data": {
+          "text": "Please select only one option",
+          "variant": "info"
+        }
+      },
+      {
+        "id": "68dp",
+        "name": "useMediaFromFolder",
+        "label": "Use Media from Folder",
+        "type": "checkbox",
+        "description": "Pick random video from folder",
+        "defaultValue": true,
+        "placeholder": "",
+        "data": {
+          "required": false
+        }
+      },
+      {
+        "id": "KxAR",
+        "name": "mediaFolderPath",
+        "label": "Media Folder",
+        "type": "string",
+        "description": "Folder containing video files",
+        "defaultValue": "",
+        "placeholder": "D:\\videos\\",
+        "data": {
+          "required": false
+        }
+      },
+      {
+        "id": "MaQI",
+        "name": "useCustomMedia",
+        "label": "Use Custom Media",
+        "type": "checkbox",
+        "description": "Use a specific video file",
+        "defaultValue": false,
+        "placeholder": "",
+        "data": {
+          "required": false
+        }
+      },
+      {
+        "id": "4UZj",
+        "name": "customMediaPath",
+        "label": "Custom Media Path",
+        "type": "string",
+        "description": "Path to video file",
+        "defaultValue": "",
+        "placeholder": "D:\\video.mp4",
+        "data": {
+          "required": false
+        }
+      },
+      {
+        "id": "WQzY",
+        "name": "",
+        "label": "Output",
+        "type": "divider",
+        "description": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "data": {
+          "thickness": 1,
+          "marginTop": 8,
+          "marginBottom": 8,
+          "label": "Output"
+        }
+      },
+      {
+        "id": "WHcJ",
+        "name": "output_link_path",
+        "label": "Output Link File",
+        "type": "filepath",
+        "description": "Save posted Reel permalinks",
+        "defaultValue": "",
+        "placeholder": "D:\\output\\links.txt",
+        "data": {
+          "required": true
+        }
+      }
+    ],
+    "preferParamsInTab": false,
+    "observeElement": false
+  },
+  "isProtected": false,
+  "includedWorkflows": {},
+  "author": "GemLogin Team"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "riM1BtDib4BtrGICKPzPe",
+  "name": "(TikTok) Professional Video Poster",
+  "parameters": [
+    {
+      "name": "video_source_path",
+      "label": "Video Source Directory",
+      "type": "string",
+      "description": "Path to your video files",
+      "defaultValue": "",
+      "required": true
+    },
+    {
+      "name": "captions_file_path",
+      "label": "Captions Data Source (.txt)",
+      "type": "filepath",
+      "description": "Select .txt file for captions",
+      "defaultValue": "",
+      "required": false
+    },
+    {
+      "name": "hashtags_file_path",
+      "label": "Hashtags Data Source (.txt)",
+      "type": "filepath",
+      "description": "Select .txt file for hashtags",
+      "defaultValue": "",
+      "required": false
+    },
+    {
+      "name": "post_limit",
+      "label": "Total Posts per Session",
+      "type": "number",
+      "description": "Number of videos to post",
+      "defaultValue": "1",
+      "required": true
+    },
+    {
+      "name": "is_random_mode",
+      "label": "Enable Random Selection",
+      "type": "checkbox",
+      "description": "Randomly select videos from directory",
+      "defaultValue": true,
+      "required": false
+    }
+  ]
+}

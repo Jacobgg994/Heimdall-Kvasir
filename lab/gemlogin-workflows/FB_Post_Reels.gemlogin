@@ -1,0 +1,1691 @@
+{
+  "extVersion": 2,
+  "name": "[FB] Post Reels",
+  "icon": "riGlobalLine",
+  "table": [],
+  "version": "1.0.0",
+  "drawflow": {
+    "nodes": [
+      {
+        "id": "t2z1drg",
+        "type": "BlockBasic",
+        "label": "trigger",
+        "initialized": false,
+        "position": {
+          "x": 375,
+          "y": 100
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riPlayLine",
+          "type": "manual",
+          "interval": 60,
+          "delay": 5,
+          "date": "",
+          "time": "00:00",
+          "url": "",
+          "shortcut": "",
+          "activeInInput": false,
+          "isUrlRegex": false,
+          "days": [],
+          "contextMenuName": "",
+          "contextTypes": [],
+          "parameters": [
+            {
+              "id": "PlHp",
+              "name": "",
+              "label": "🎬 Reels Video",
+              "type": "divider",
+              "description": "",
+              "defaultValue": "",
+              "placeholder": "",
+              "data": {
+                "thickness": 1,
+                "marginTop": 8,
+                "marginBottom": 8,
+                "label": "🎬 Reels Video"
+              }
+            },
+            {
+              "id": "Gvu0",
+              "name": "reel_video_path",
+              "label": "Reel Video File",
+              "type": "filepath",
+              "description": "Path to the video file to upload as a Facebook Reel",
+              "defaultValue": "",
+              "placeholder": "D:\\videos\\reel.mp4",
+              "data": {
+                "required": true
+              }
+            },
+            {
+              "id": "AfY4",
+              "name": "",
+              "label": "📝 Content",
+              "type": "divider",
+              "description": "",
+              "defaultValue": "",
+              "placeholder": "",
+              "data": {
+                "thickness": 1,
+                "marginTop": 8,
+                "marginBottom": 8,
+                "label": "📝 Content"
+              }
+            },
+            {
+              "id": "MUhQ",
+              "name": "reel_caption",
+              "label": "Caption",
+              "type": "string",
+              "description": "Caption/description for the Reel",
+              "defaultValue": "",
+              "placeholder": "Enter your Reel caption...",
+              "data": {
+                "required": false
+              }
+            },
+            {
+              "id": "1AXx",
+              "name": "",
+              "label": "💾 Output",
+              "type": "divider",
+              "description": "",
+              "defaultValue": "",
+              "placeholder": "",
+              "data": {
+                "thickness": 1,
+                "marginTop": 8,
+                "marginBottom": 8,
+                "label": "💾 Output"
+              }
+            },
+            {
+              "id": "TW38",
+              "name": "output_link_path",
+              "label": "Output Link File",
+              "type": "filepath",
+              "description": "Text file to save the posted Reel permalink",
+              "defaultValue": "",
+              "placeholder": "D:\\output\\reel_links.txt",
+              "data": {
+                "required": true
+              }
+            }
+          ],
+          "preferParamsInTab": false,
+          "observeElement": false
+        }
+      },
+      {
+        "id": "7knz6n6",
+        "type": "BlockNote",
+        "label": "note",
+        "initialized": false,
+        "position": {
+          "x": -230,
+          "y": 70
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStickyNoteLine",
+          "note": "SETUP — Validate inputs",
+          "drawing": false,
+          "width": 1032,
+          "height": 246,
+          "color": "green",
+          "fontSize": "large"
+        }
+      },
+      {
+        "id": "48776w3",
+        "type": "BlockBasicWithFallback",
+        "label": "javascript-code",
+        "initialized": false,
+        "position": {
+          "x": 378,
+          "y": 250
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Validate input parameters",
+          "icon": "riCodeBoxLine",
+          "code": "// Validate inputs\nconst videoPath = '{{variables.reel_video_path}}';\nconst outputPath = '{{variables.output_link_path}}';\n\nlet valid = true;\nlet errors = [];\n\nif (!videoPath || videoPath.trim() === '') {\n    errors.push('Missing video file path');\n    valid = false;\n}\nif (!outputPath || outputPath.trim() === '') {\n    errors.push('Missing output link file path');\n    valid = false;\n}\n\nreturn {\n    valid: valid,\n    errors: errors.join('; ')\n};",
+          "assignVariable": true,
+          "variableName": "",
+          "delay": 200,
+          "timeout": 15000
+        }
+      },
+      {
+        "id": "8mtrvi2",
+        "type": "BlockNote",
+        "label": "note",
+        "initialized": false,
+        "position": {
+          "x": -870,
+          "y": 440
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStickyNoteLine",
+          "note": "NAVIGATE — Open Facebook Reels Creator",
+          "drawing": false,
+          "width": 1032,
+          "height": 246,
+          "color": "blue",
+          "fontSize": "large"
+        }
+      },
+      {
+        "id": "nwlukrp",
+        "type": "BlockBasicWithFallback",
+        "label": "open-url",
+        "initialized": false,
+        "position": {
+          "x": 160,
+          "y": 500
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Open Reels creation page — redirects to /reel/[id]",
+          "icon": "riLink",
+          "url": "https://www.facebook.com/reels/create/",
+          "userAgent": "",
+          "waitTabLoaded": false,
+          "waitForNavigation": "domcontentloaded",
+          "customUserAgent": false,
+          "newTab": false,
+          "active": true,
+          "delay": "5000"
+        }
+      },
+      {
+        "id": "h2hb6y2",
+        "type": "BlockBasicWithFallback",
+        "label": "tab-loaded",
+        "initialized": false,
+        "position": {
+          "x": 500,
+          "y": 500
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Wait for Reels creator to load (title: Create reel)",
+          "icon": "riCheckLine",
+          "delay": 200,
+          "timeout": 30000
+        }
+      },
+      {
+        "id": "9oljmgb",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 900,
+          "y": 500
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "FALLBACK: Click Reels tab in sidebar",
+          "icon": "riCursorLine",
+          "x": "",
+          "y": "",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//a[@aria-label='Reels']",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 2000,
+          "humanClick": true
+        }
+      },
+      {
+        "id": "pd81xal",
+        "type": "BlockNote",
+        "label": "note",
+        "initialized": false,
+        "position": {
+          "x": -870,
+          "y": 715
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStickyNoteLine",
+          "note": "UPLOAD — Click Add video, then upload (VERIFIED selectors)",
+          "drawing": false,
+          "width": 1032,
+          "height": 246,
+          "color": "blue",
+          "fontSize": "large"
+        }
+      },
+      {
+        "id": "7iuejc0",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 160,
+          "y": 740
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click 'Add video' to reveal upload controls (VERIFIED: count=1 visible)",
+          "icon": "riCursorLine",
+          "x": "",
+          "y": "",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//*[contains(text(),'Add video')]",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 2000,
+          "humanClick": true
+        }
+      },
+      {
+        "id": "3njqcuq",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 500,
+          "y": 730
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click 'Upload video for Reel' button (VERIFIED: aria-label match)",
+          "icon": "riCursorLine",
+          "x": "",
+          "y": "",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//div[@role='button' and @aria-label='Upload video for Reel']",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 2000,
+          "humanClick": true
+        }
+      },
+      {
+        "id": "jar9ubo",
+        "type": "BlockBasicWithFallback",
+        "label": "upload-file",
+        "initialized": false,
+        "position": {
+          "x": 160,
+          "y": 865
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Upload video via file input (VERIFIED: accept contains video)",
+          "icon": "riUploadLine",
+          "findBy": "xpath",
+          "selector": "//input[@type='file' and contains(@accept,'video')]",
+          "filePath": "{{variables.reel_video_path}}",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 30000,
+          "delay": 200
+        }
+      },
+      {
+        "id": "mshiaem",
+        "type": "BlockBasicWithFallback",
+        "label": "delay",
+        "initialized": false,
+        "position": {
+          "x": 500,
+          "y": 850
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Wait for video processing to complete (20-30s)",
+          "icon": "riTimerLine",
+          "delay": 25000
+        }
+      },
+      {
+        "id": "74tq2c0",
+        "type": "BlockNote",
+        "label": "note",
+        "initialized": false,
+        "position": {
+          "x": -870,
+          "y": 1030
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStickyNoteLine",
+          "note": "CAPTION — Type caption text into Reels description field",
+          "drawing": false,
+          "width": 1032,
+          "height": 246,
+          "color": "blue",
+          "fontSize": "large"
+        }
+      },
+      {
+        "id": "l6yk8fs",
+        "type": "BlockBasicWithFallback",
+        "label": "forms",
+        "initialized": false,
+        "position": {
+          "x": 160,
+          "y": 1060
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Type Reel caption into description field",
+          "icon": "riInputField",
+          "findBy": "xpath",
+          "selector": "//div[@role='dialog']//div[@role='textbox' and contains(@aria-label,'Describe')]",
+          "value": "{{variables.reel_caption}}",
+          "fieldType": "text",
+          "clearBefore": true,
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "delay": 500
+        }
+      },
+      {
+        "id": "adivhxm",
+        "type": "BlockBasicWithFallback",
+        "label": "delay",
+        "initialized": false,
+        "position": {
+          "x": 500,
+          "y": 1050
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Short pause after typing caption",
+          "icon": "riTimerLine",
+          "delay": 2000
+        }
+      },
+      {
+        "id": "hcwtjgj",
+        "type": "BlockNote",
+        "label": "note",
+        "initialized": false,
+        "position": {
+          "x": -870,
+          "y": 1320
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStickyNoteLine",
+          "note": "AUDIENCE — Verify or set visibility to Public",
+          "drawing": false,
+          "width": 1032,
+          "height": 246,
+          "color": "blue",
+          "fontSize": "large"
+        }
+      },
+      {
+        "id": "dbkat97",
+        "type": "BlockBasicWithFallback",
+        "label": "element-exists",
+        "initialized": false,
+        "position": {
+          "x": -194,
+          "y": 1364
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Check if audience is Public (VERIFIED: Shared with Public)",
+          "icon": "riCheckboxCircleLine",
+          "findBy": "xpath",
+          "selector": "//div[@role='button' and starts-with(@aria-label,'Shared with Public')]",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 5000,
+          "delay": 200,
+          "assignVariable": true,
+          "variableName": "audience_is_public"
+        }
+      },
+      {
+        "id": "vm8g6e6",
+        "type": "BlockConditions",
+        "label": "conditions",
+        "initialized": false,
+        "position": {
+          "x": 160,
+          "y": 1330
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Route: Is audience already Public?",
+          "icon": "riAB",
+          "conditions": [
+            {
+              "id": "already-public",
+              "name": "Already Public",
+              "conditions": [
+                {
+                  "id": "group-already-public",
+                  "conditions": [
+                    {
+                      "id": "rule-already-public",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.audience_is_public}}"
+                          },
+                          "id": "235v37aic49r0hlgunhx"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "true"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "not-public",
+              "name": "Not Public — Fix",
+              "conditions": [
+                {
+                  "id": "group-not-public",
+                  "conditions": [
+                    {
+                      "id": "rule-not-public",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.audience_is_public}}"
+                          },
+                          "id": "2rdh9ruy1atgsyt0dviz"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "false"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "retryConditions": false,
+          "retryCount": 10,
+          "retryTimeout": 1000,
+          "delay": 0
+        }
+      },
+      {
+        "id": "0orckw3",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 712,
+          "y": 1455
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click Edit Privacy button",
+          "icon": "riCursorLine",
+          "x": "",
+          "y": "",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//div[@role='button' and starts-with(@aria-label,'Edit privacy. Sharing with')]",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 1500,
+          "humanClick": true
+        }
+      },
+      {
+        "id": "2r3r415",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 715,
+          "y": 1340
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Select 'Public' from privacy options",
+          "icon": "riCursorLine",
+          "x": "",
+          "y": "",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//div[@role='dialog']//span[normalize-space(.)='Public']",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 1500,
+          "humanClick": true
+        }
+      },
+      {
+        "id": "ya3trsr",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 1100,
+          "y": 1326
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click 'Done' to close privacy dialog",
+          "icon": "riCursorLine",
+          "x": "",
+          "y": "",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//div[@role='button' and @aria-label='Done with privacy audience selection and close dialog']",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 1500,
+          "humanClick": true
+        }
+      },
+      {
+        "id": "tjnoxg1",
+        "type": "BlockNote",
+        "label": "note",
+        "initialized": false,
+        "position": {
+          "x": -870,
+          "y": 1620
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStickyNoteLine",
+          "note": "PUBLISH — Click Share Reel and handle confirmation modal",
+          "drawing": false,
+          "width": 1032,
+          "height": 246,
+          "color": "blue",
+          "fontSize": "large"
+        }
+      },
+      {
+        "id": "ftot7hs",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 488,
+          "y": 1660
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click 'Share' button to publish Reel (VERIFIED: count=2 visible)",
+          "icon": "riCursorLine",
+          "x": "",
+          "y": "",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 15000,
+          "selector": "//div[@role='button' and @aria-label='Share']",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 3000,
+          "humanClick": true
+        }
+      },
+      {
+        "id": "q0mwx4l",
+        "type": "BlockBasicWithFallback",
+        "label": "delay",
+        "initialized": false,
+        "position": {
+          "x": 905,
+          "y": 1647
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Wait for Facebook upload + transcode",
+          "icon": "riTimerLine",
+          "delay": 20000
+        }
+      },
+      {
+        "id": "yunoncq",
+        "type": "BlockBasicWithFallback",
+        "label": "javascript-code",
+        "initialized": false,
+        "position": {
+          "x": -74,
+          "y": 1811
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Detect if confirmation modal appeared",
+          "icon": "riCodeBoxLine",
+          "code": "const confirmBtn = document.querySelector('[aria-label=\"Share now\"], [aria-label=\"Share Reel\"], [aria-label=\"Post\"]');\nconst successMsg = document.querySelector('[aria-label=\"Reel shared\"], [role=\"status\"]');\nconst state = successMsg ? 'published' : (confirmBtn ? 'confirm' : 'published');\nreturn { state: state };",
+          "assignVariable": true,
+          "variableName": "",
+          "delay": 200,
+          "timeout": 15000
+        }
+      },
+      {
+        "id": "70vvytj",
+        "type": "BlockConditions",
+        "label": "conditions",
+        "initialized": false,
+        "position": {
+          "x": 475,
+          "y": 1800
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Route: Need extra confirmation click?",
+          "icon": "riAB",
+          "conditions": [
+            {
+              "id": "need-confirm",
+              "name": "Confirmation needed",
+              "conditions": [
+                {
+                  "id": "group-need-confirm",
+                  "conditions": [
+                    {
+                      "id": "rule-need-confirm",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.state}}"
+                          },
+                          "id": "ahl5tn6dpq8i98ryweoy"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "confirm"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "published",
+              "name": "Published — Done",
+              "conditions": [
+                {
+                  "id": "group-published",
+                  "conditions": [
+                    {
+                      "id": "rule-published",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.state}}"
+                          },
+                          "id": "bfumpikaau8bce5cwb6x"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "published"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "retryConditions": false,
+          "retryCount": 10,
+          "retryTimeout": 1000,
+          "delay": 0
+        }
+      },
+      {
+        "id": "hex3eq6",
+        "type": "BlockBasicWithFallback",
+        "label": "event-click",
+        "initialized": false,
+        "position": {
+          "x": 1080,
+          "y": 1768
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Click confirmation 'Share now'",
+          "icon": "riCursorLine",
+          "x": "",
+          "y": "",
+          "findBy": "xpath",
+          "waitForSelector": true,
+          "waitSelectorTimeout": 10000,
+          "selector": "//div[@role='button' and (@aria-label='Share now' or @aria-label='Share Reel' or @aria-label='Post')]",
+          "markEl": false,
+          "multiple": false,
+          "selectOption": "leftClick",
+          "delay": 2000,
+          "humanClick": true
+        }
+      },
+      {
+        "id": "eza8bi7",
+        "type": "BlockNote",
+        "label": "note",
+        "initialized": false,
+        "position": {
+          "x": -870,
+          "y": 2088
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStickyNoteLine",
+          "note": "COLLECT LINK — Extract the posted Reel permalink",
+          "drawing": false,
+          "width": 1032,
+          "height": 246,
+          "color": "blue",
+          "fontSize": "large"
+        }
+      },
+      {
+        "id": "zulh4jf",
+        "type": "BlockBasicWithFallback",
+        "label": "reload-tab",
+        "initialized": false,
+        "position": {
+          "x": 1077,
+          "y": 1919
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Reload page to see newly posted content",
+          "icon": "riRefreshLine",
+          "delay": 200
+        }
+      },
+      {
+        "id": "xlr9i5v",
+        "type": "BlockBasicWithFallback",
+        "label": "delay",
+        "initialized": false,
+        "position": {
+          "x": -75,
+          "y": 2144
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Wait for page reload to settle",
+          "icon": "riTimerLine",
+          "delay": 5000
+        }
+      },
+      {
+        "id": "7zgnvor",
+        "type": "BlockBasicWithFallback",
+        "label": "javascript-code",
+        "initialized": false,
+        "position": {
+          "x": 328,
+          "y": 2133
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Extract latest Reel permalink",
+          "icon": "riCodeBoxLine",
+          "code": "// Find the newest Reel link — 3 strategies\nlet reelUrl = '';\n\n// 1: Are we on a Reel watch page?\nif (window.location.href.includes('/reel/') || window.location.href.includes('/reels/')) {\n    reelUrl = window.location.href;\n}\n\n// 2: Find first Reel link on the page\nif (!reelUrl) {\n    const links = document.querySelectorAll('a[href*=\"/reel/\"], a[href*=\"/reels/\"]');\n    for (const link of links) {\n        const href = link.getAttribute('href');\n        if (href && (href.includes('/reel/') || href.includes('/reels/'))) {\n            reelUrl = href.startsWith('http') ? href : 'https://www.facebook.com' + href.split('?')[0];\n            break;\n        }\n    }\n}\n\n// 3: Check embed/share inputs for permalink\nif (!reelUrl) {\n    const inputs = document.querySelectorAll('input[value*=\"permalink\"], input[value*=\"/reel/\"]');\n    for (const input of inputs) {\n        const val = input.value;\n        if (val && (val.includes('permalink') || val.includes('/reel/') || val.includes('/reels/'))) {\n            try { const url = new URL(val); reelUrl = url.searchParams.get('href') || val; }\n            catch(e) { reelUrl = val; }\n            break;\n        }\n    }\n}\n\nreturn { reel_url: reelUrl, found: reelUrl.length > 0 ? 'yes' : 'no', source_page: window.location.href };",
+          "assignVariable": true,
+          "variableName": "",
+          "delay": 200,
+          "timeout": 15000
+        }
+      },
+      {
+        "id": "brahtuh",
+        "type": "BlockConditions",
+        "label": "conditions",
+        "initialized": false,
+        "position": {
+          "x": 666,
+          "y": 2125
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Route: Was Reel link found?",
+          "icon": "riAB",
+          "conditions": [
+            {
+              "id": "link-found",
+              "name": "Link found",
+              "conditions": [
+                {
+                  "id": "group-link-found",
+                  "conditions": [
+                    {
+                      "id": "rule-link-found",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.found}}"
+                          },
+                          "id": "dwmx9yap16leq8lgg7kz"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "yes"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "link-missing",
+              "name": "Link missing",
+              "conditions": [
+                {
+                  "id": "group-link-missing",
+                  "conditions": [
+                    {
+                      "id": "rule-link-missing",
+                      "items": [
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "{{variables.found}}"
+                          },
+                          "id": "ttipwr56g5zl1gx49wxl"
+                        },
+                        {
+                          "category": "compare",
+                          "type": "eq"
+                        },
+                        {
+                          "type": "value",
+                          "category": "value",
+                          "data": {
+                            "value": "no"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "retryConditions": false,
+          "retryCount": 10,
+          "retryTimeout": 1000,
+          "delay": 0
+        }
+      },
+      {
+        "id": "nl2sjke",
+        "type": "BlockNote",
+        "label": "note",
+        "initialized": false,
+        "position": {
+          "x": 1429,
+          "y": 2083
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStickyNoteLine",
+          "note": "SAVE — Append Reel permalink to output file",
+          "drawing": false,
+          "width": 1032,
+          "height": 246,
+          "color": "blue",
+          "fontSize": "large"
+        }
+      },
+      {
+        "id": "c7ml9ed",
+        "type": "BlockBasicWithFallback",
+        "label": "file-action",
+        "initialized": false,
+        "position": {
+          "x": 1917,
+          "y": 2178
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "Append Reel permalink to output text file",
+          "icon": "riFileTextLine",
+          "action": "Write",
+          "filePath": "{{variables.output_link_path}}",
+          "inputData": "{{variables.reel_url}}",
+          "delimiter": "",
+          "selectorType": "txt",
+          "writeMode": "append",
+          "appendMode": "newLine",
+          "deleteFileFolder": "",
+          "delay": 0
+        }
+      },
+      {
+        "id": "g57o4cb",
+        "type": "BlockBasic",
+        "label": "end",
+        "initialized": false,
+        "position": {
+          "x": 2256,
+          "y": 2238
+        },
+        "data": {
+          "disableBlock": false,
+          "description": "",
+          "icon": "riStopCircleLine"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "vueflow__edge-t2z1drg-48776w3-zu3vjmf",
+        "type": "bezier",
+        "source": "t2z1drg",
+        "target": "48776w3",
+        "sourceHandle": "t2z1drg-output-1",
+        "targetHandle": "48776w3-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Start",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-48776w3-nwlukrp-4xm1f5k",
+        "type": "bezier",
+        "source": "48776w3",
+        "target": "nwlukrp",
+        "sourceHandle": "48776w3-output-1",
+        "targetHandle": "nwlukrp-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Navigate",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-nwlukrp-h2hb6y2-4qojd6a",
+        "type": "bezier",
+        "source": "nwlukrp",
+        "target": "h2hb6y2",
+        "sourceHandle": "nwlukrp-output-1",
+        "targetHandle": "h2hb6y2-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Reels page",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-h2hb6y2-7iuejc0-tu6zbro",
+        "type": "bezier",
+        "source": "h2hb6y2",
+        "target": "7iuejc0",
+        "sourceHandle": "h2hb6y2-output-1",
+        "targetHandle": "7iuejc0-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Upload video",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-h2hb6y2-9oljmgb-k1zg2ku",
+        "type": "bezier",
+        "source": "h2hb6y2",
+        "target": "9oljmgb",
+        "sourceHandle": "h2hb6y2-output-fallback",
+        "targetHandle": "9oljmgb-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "FALLBACK: click Reels tab",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-9oljmgb-7iuejc0-7sjh78l",
+        "type": "bezier",
+        "source": "9oljmgb",
+        "target": "7iuejc0",
+        "sourceHandle": "9oljmgb-output-1",
+        "targetHandle": "7iuejc0-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Upload flow",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-7iuejc0-3njqcuq-n7824y3",
+        "type": "bezier",
+        "source": "7iuejc0",
+        "target": "3njqcuq",
+        "sourceHandle": "7iuejc0-output-1",
+        "targetHandle": "3njqcuq-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Upload btn appears",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-3njqcuq-jar9ubo-3hay3im",
+        "type": "bezier",
+        "source": "3njqcuq",
+        "target": "jar9ubo",
+        "sourceHandle": "3njqcuq-output-1",
+        "targetHandle": "jar9ubo-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ File input",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-jar9ubo-mshiaem-d00upmo",
+        "type": "bezier",
+        "source": "jar9ubo",
+        "target": "mshiaem",
+        "sourceHandle": "jar9ubo-output-1",
+        "targetHandle": "mshiaem-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Processing...",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-mshiaem-l6yk8fs-a33bhr2",
+        "type": "bezier",
+        "source": "mshiaem",
+        "target": "l6yk8fs",
+        "sourceHandle": "mshiaem-output-1",
+        "targetHandle": "l6yk8fs-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Caption",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-l6yk8fs-adivhxm-p50jm94",
+        "type": "bezier",
+        "source": "l6yk8fs",
+        "target": "adivhxm",
+        "sourceHandle": "l6yk8fs-output-1",
+        "targetHandle": "adivhxm-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Pause",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-adivhxm-dbkat97-kdhzaow",
+        "type": "bezier",
+        "source": "adivhxm",
+        "target": "dbkat97",
+        "sourceHandle": "adivhxm-output-1",
+        "targetHandle": "dbkat97-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Check audience",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-dbkat97-vm8g6e6-ls23mt5",
+        "type": "bezier",
+        "source": "dbkat97",
+        "target": "vm8g6e6",
+        "sourceHandle": "dbkat97-output-1",
+        "targetHandle": "vm8g6e6-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Check result",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-vm8g6e6-ftot7hs-q8ygp5w",
+        "type": "bezier",
+        "source": "vm8g6e6",
+        "target": "ftot7hs",
+        "sourceHandle": "vm8g6e6-output-already-public",
+        "targetHandle": "ftot7hs-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Already Public ✓ → Share",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-vm8g6e6-0orckw3-3eksgt1",
+        "type": "bezier",
+        "source": "vm8g6e6",
+        "target": "0orckw3",
+        "sourceHandle": "vm8g6e6-output-not-public",
+        "targetHandle": "0orckw3-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Not Public → Fix",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-0orckw3-2r3r415-ndozxhk",
+        "type": "bezier",
+        "source": "0orckw3",
+        "target": "2r3r415",
+        "sourceHandle": "0orckw3-output-1",
+        "targetHandle": "2r3r415-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Select Public",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-2r3r415-ya3trsr-gy6isk4",
+        "type": "bezier",
+        "source": "2r3r415",
+        "target": "ya3trsr",
+        "sourceHandle": "2r3r415-output-1",
+        "targetHandle": "ya3trsr-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Done",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-ya3trsr-ftot7hs-6ahqi56",
+        "type": "bezier",
+        "source": "ya3trsr",
+        "target": "ftot7hs",
+        "sourceHandle": "ya3trsr-output-1",
+        "targetHandle": "ftot7hs-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Share",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-ftot7hs-q0mwx4l-rkqxytt",
+        "type": "bezier",
+        "source": "ftot7hs",
+        "target": "q0mwx4l",
+        "sourceHandle": "ftot7hs-output-1",
+        "targetHandle": "q0mwx4l-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Publishing...",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-q0mwx4l-yunoncq-du7ycl2",
+        "type": "bezier",
+        "source": "q0mwx4l",
+        "target": "yunoncq",
+        "sourceHandle": "q0mwx4l-output-1",
+        "targetHandle": "yunoncq-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Check confirm",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-yunoncq-70vvytj-ii3us8f",
+        "type": "bezier",
+        "source": "yunoncq",
+        "target": "70vvytj",
+        "sourceHandle": "yunoncq-output-1",
+        "targetHandle": "70vvytj-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Route",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-70vvytj-zulh4jf-bkw1r6l",
+        "type": "bezier",
+        "source": "70vvytj",
+        "target": "zulh4jf",
+        "sourceHandle": "70vvytj-output-published",
+        "targetHandle": "zulh4jf-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Published ✓ → Collect",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-70vvytj-hex3eq6-0ckj6a7",
+        "type": "bezier",
+        "source": "70vvytj",
+        "target": "hex3eq6",
+        "sourceHandle": "70vvytj-output-need-confirm",
+        "targetHandle": "hex3eq6-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Need confirm →",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-hex3eq6-zulh4jf-bx3zzrn",
+        "type": "bezier",
+        "source": "hex3eq6",
+        "target": "zulh4jf",
+        "sourceHandle": "hex3eq6-output-1",
+        "targetHandle": "zulh4jf-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "→ Collect",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-zulh4jf-xlr9i5v-a7h0gyd",
+        "type": "bezier",
+        "source": "zulh4jf",
+        "target": "xlr9i5v",
+        "sourceHandle": "zulh4jf-output-1",
+        "targetHandle": "xlr9i5v-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Reloaded",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-xlr9i5v-7zgnvor-kisa43n",
+        "type": "bezier",
+        "source": "xlr9i5v",
+        "target": "7zgnvor",
+        "sourceHandle": "xlr9i5v-output-1",
+        "targetHandle": "7zgnvor-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Find link",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-7zgnvor-brahtuh-zkgmabq",
+        "type": "bezier",
+        "source": "7zgnvor",
+        "target": "brahtuh",
+        "sourceHandle": "7zgnvor-output-1",
+        "targetHandle": "brahtuh-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Route",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-brahtuh-c7ml9ed-fa3dmip",
+        "type": "bezier",
+        "source": "brahtuh",
+        "target": "c7ml9ed",
+        "sourceHandle": "brahtuh-output-link-found",
+        "targetHandle": "c7ml9ed-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Link found → Save",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-brahtuh-g57o4cb-0oqk2fd",
+        "type": "bezier",
+        "source": "brahtuh",
+        "target": "g57o4cb",
+        "sourceHandle": "brahtuh-output-link-missing",
+        "targetHandle": "g57o4cb-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "No link → End",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      },
+      {
+        "id": "vueflow__edge-c7ml9ed-g57o4cb-lkcrl7w",
+        "type": "bezier",
+        "source": "c7ml9ed",
+        "target": "g57o4cb",
+        "sourceHandle": "c7ml9ed-output-1",
+        "targetHandle": "g57o4cb-input-1",
+        "updatable": true,
+        "selectable": true,
+        "data": {},
+        "label": "Done ✓",
+        "markerEnd": "arrowclosed",
+        "sourceX": 0,
+        "sourceY": 0,
+        "targetX": 0,
+        "targetY": 0
+      }
+    ]
+  },
+  "settings": {
+    "publicId": "",
+    "blockDelay": 0,
+    "saveLog": true,
+    "debugMode": false,
+    "restartTimes": 3,
+    "notification": true,
+    "execContext": "popup",
+    "reuseLastState": false,
+    "inputAutocomplete": true,
+    "onError": "stop-workflow",
+    "executedBlockOnWeb": false,
+    "insertDefaultColumn": false,
+    "defaultColumnName": "column"
+  },
+  "globalData": "",
+  "description": "Built by GemLogin Team: JACOB (CEO) | GEMMY (Automation Lead) | ARKA (Workflow Creator) | LUMI (Workflow Analyst) | HEIMDALL (QA Engineer) | JIMMY (COO)",
+  "trigger": {
+    "icon": "riPlayLine",
+    "disableBlock": false,
+    "description": "",
+    "type": "manual",
+    "interval": 60,
+    "delay": 5,
+    "date": "",
+    "time": "00:00",
+    "url": "",
+    "shortcut": "",
+    "activeInInput": false,
+    "isUrlRegex": false,
+    "days": [],
+    "contextMenuName": "",
+    "contextTypes": [],
+    "parameters": [
+      {
+        "id": "PlHp",
+        "name": "",
+        "label": "🎬 Reels Video",
+        "type": "divider",
+        "description": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "data": {
+          "thickness": 1,
+          "marginTop": 8,
+          "marginBottom": 8,
+          "label": "🎬 Reels Video"
+        }
+      },
+      {
+        "id": "Gvu0",
+        "name": "reel_video_path",
+        "label": "Reel Video File",
+        "type": "filepath",
+        "description": "Path to the video file to upload as a Facebook Reel",
+        "defaultValue": "",
+        "placeholder": "D:\\videos\\reel.mp4",
+        "data": {
+          "required": true
+        }
+      },
+      {
+        "id": "AfY4",
+        "name": "",
+        "label": "📝 Content",
+        "type": "divider",
+        "description": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "data": {
+          "thickness": 1,
+          "marginTop": 8,
+          "marginBottom": 8,
+          "label": "📝 Content"
+        }
+      },
+      {
+        "id": "MUhQ",
+        "name": "reel_caption",
+        "label": "Caption",
+        "type": "string",
+        "description": "Caption/description for the Reel",
+        "defaultValue": "",
+        "placeholder": "Enter your Reel caption...",
+        "data": {
+          "required": false
+        }
+      },
+      {
+        "id": "1AXx",
+        "name": "",
+        "label": "💾 Output",
+        "type": "divider",
+        "description": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "data": {
+          "thickness": 1,
+          "marginTop": 8,
+          "marginBottom": 8,
+          "label": "💾 Output"
+        }
+      },
+      {
+        "id": "TW38",
+        "name": "output_link_path",
+        "label": "Output Link File",
+        "type": "filepath",
+        "description": "Text file to save the posted Reel permalink",
+        "defaultValue": "",
+        "placeholder": "D:\\output\\reel_links.txt",
+        "data": {
+          "required": true
+        }
+      }
+    ],
+    "preferParamsInTab": false,
+    "observeElement": false
+  },
+  "isProtected": false,
+  "includedWorkflows": {},
+  "author": "GemLogin Team"
+}

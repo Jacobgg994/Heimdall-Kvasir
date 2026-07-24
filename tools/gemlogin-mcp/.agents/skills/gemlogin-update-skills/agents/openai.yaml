@@ -1,0 +1,4 @@
+interface:
+  display_name: "GemLogin Update Skills"
+  short_description: "Refresh GemLogin skills from Forgejo"
+  default_prompt: "Use $gemlogin-update-skills to pull and install bundled GemLogin skills from the gemlogin-skills repo."

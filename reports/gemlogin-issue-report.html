@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { font-family: 'Sarabun', 'Noto Sans Thai', 'Leelawadee UI', 'Tahoma', sans-serif; margin: 0; padding: 0; }
+  body { font-size: 9pt; line-height: 1.5; color: #1e293b; }
+  @page {
+    size: A4; margin: 16mm 13mm;
+    @top-center { content: "Gemlogin Issue Report — 13 ก.ค. 2026"; font-size: 7pt; color: #94a3b8; font-family: 'Sarabun', sans-serif; }
+    @bottom-center { content: "หน้า " counter(page) " / " counter(pages); font-size: 7pt; color: #94a3b8; font-family: 'Sarabun', sans-serif; }
+  }
+  h1 { font-size: 11pt; font-weight: 700; color: #0F172A; border-bottom: 2px solid #0ea5e9; padding-bottom: 4px; margin: 20px 0 6px 0; }
+  h2 { font-size: 9.5pt; font-weight: 700; color: #0369a1; margin: 14px 0 4px 0; padding-left: 6px; border-left: 3px solid #0ea5e9; }
+  h3 { font-size: 8.5pt; font-weight: 600; color: #334155; margin: 10px 0 3px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 5px 0 10px 0; font-size: 8pt; }
+  th { background: #0F172A; color: #e2e8f0; padding: 4px 7px; text-align: left; font-weight: 600; font-size: 7pt; letter-spacing: 0.3px; }
+  td { padding: 4px 7px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .st-ok { color: #16a34a; font-weight: 700; }
+  .st-bad { color: #dc2626; font-weight: 700; }
+  .st-warn { color: #d97706; font-weight: 700; }
+  .badge { display: inline-block; padding: 1px 5px; border-radius: 3px; font-size: 6.5pt; font-weight: 600; }
+  .bg-ok { background: #dcfce7; color: #166534; }
+  .bg-bad { background: #fecaca; color: #991b1b; }
+  .bg-warn { background: #fef3c7; color: #92400e; }
+  .bg-info { background: #dbeafe; color: #1e40af; }
+  .bg-gray { background: #f1f5f9; color: #475569; }
+  .team { font-weight: 600; font-size: 7.5pt; }
+  .ver { font-family: monospace; font-size: 8pt; font-weight: 600; color: #0F172A; }
+  .callout { border-left: 3px solid #0ea5e9; background: #f0f9ff; padding: 6px 10px; margin: 7px 0; border-radius: 0 4px 4px 0; font-size: 8pt; }
+  .danger-box { border-left: 3px solid #dc2626; background: #fef2f2; padding: 6px 10px; margin: 7px 0; border-radius: 0 4px 4px 0; font-size: 8pt; }
+  .stats { display: flex; gap: 8px; margin: 6px 0 10px 0; }
+  .stat { flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 6px 8px; text-align: center; }
+  .stat .num { font-size: 16pt; font-weight: 700; color: #0ea5e9; line-height: 1.1; }
+  .stat .lbl { font-size: 6.5pt; color: #64748b; text-transform: uppercase; letter-spacing: 0.3px; }
+  ul, ol { margin: 2px 0 4px 14px; }
+  li { margin: 2px 0; font-size: 8pt; }
+  hr { border: none; border-top: 1px solid #e2e8f0; margin: 12px 0; }
+  .issue-group { margin: 4px 0 8px 0; }
+  .issue-group h3 { margin: 8px 0 3px 0; font-size: 8pt; }
+  .tag-row { margin: 2px 0; }
+  .tag-row span { display: inline-block; margin-right: 4px; margin-bottom: 2px; }
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+
+<p style="font-size:7pt; color:#94a3b8; margin-bottom:2px;">Gemlogin Internal Report · 11–12 ก.ค. 2026 · ทีม: อินฟลู / แบรนด์ / ขายตรง-West / ADS / สตรีม</p>
+
+<div class="stats">
+  <div class="stat"><div class="num">11</div><div class="lbl">สคริปต์</div></div>
+  <div class="stat"><div class="num">5</div><div class="lbl">ทีม</div></div>
+  <div class="stat"><div class="num">42</div><div class="lbl">ประเด็น</div></div>
+  <div class="stat"><div class="num">9</div><div class="lbl">แก้ไขแล้ว</div></div>
+  <div class="stat"><div class="num">7</div><div class="lbl">Action Plans</div></div>
+</div>
+
+<!-- ===== 1. WARM FACEBOOK 1.6 ===== -->
+<h1>1. <span class="ver">Warm Facebook 1.6</span></h1>
+<table>
+  <tr><th width="16%">ทีม</th><th width="12%">สถานะ</th><th width="40%">ปัญหาการใช้งาน</th><th width="32%">ปัญหาทางเทคนิค / บัญชี</th></tr>
+  <tr>
+    <td><span class="team">แบรนด์</span></td>
+    <td><span class="st-ok">✓ ปกติ</span></td>
+    <td>ไม่ค่อยเกิดปัญหา</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><span class="team">อินฟลู</span></td>
+    <td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>บางตัวกดรัน → เปิดโปรไฟล์ → Complete ทันที ไม่มีการทำงานต่อ</td>
+    <td><span class="badge bg-bad">บัญชี</span> วอร์มแล้วเฟสปลิว — สาเหตุยังไม่ชัดเจน</td>
+  </tr>
+</table>
+
+<!-- ===== 2. POST PAGE 2.0.0 ===== -->
+<h1>2. <span class="ver">Post Page 2.0.0</span></h1>
+<table>
+  <tr><th width="16%">ทีม</th><th width="12%">สถานะ</th><th width="40%">ปัญหาการใช้งาน</th><th width="32%">ปัญหาทางเทคนิค / บัญชี</th></tr>
+  <tr>
+    <td><span class="team">อินฟลู</span></td>
+    <td><span class="st-ok">✓ ปกติ</span></td>
+    <td>Wall เพจโพสต์ได้ปกติ — ต้องการโพสต์กลุ่ม + โพสต์โปรไฟล์เพิ่ม</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><span class="team">แบรนด์</span></td>
+    <td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>Wall ปกติ — กลุ่มยังใส่รูป/วิดีโอ/GIF ไม่ได้</td>
+    <td><span class="badge bg-bad">GIF</span> ยังไม่รองรับ &nbsp; <span class="badge bg-bad">รูป</span> รูปไม่แสดงบน FB — ต้องกดอนุญาตก่อน</td>
+  </tr>
+</table>
+
+<!-- ===== 3. POST PAGE 2.0.1 ===== -->
+<h1>3. <span class="ver">Post Page 2.0.1</span></h1>
+<table>
+  <tr><th width="16%">ทีม</th><th width="12%">สถานะ</th><th width="40%">ปัญหาการใช้งาน</th><th width="32%">ปัญหาทางเทคนิค / บัญชี</th></tr>
+  <tr>
+    <td><span class="team">ขายตรง-West</span></td>
+    <td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>
+      <span class="badge bg-ok">✓</span> โพสต์เพจ, กลุ่ม(บางบัญชี), รูป+รูป, รูป+วิดีโอ<br>
+      <span class="badge bg-bad">✗</span> โพสต์ GIF ไม่ได้
+    </td>
+    <td>
+      <span class="badge bg-bad">Mouse Click</span> ไม่ตรง — โพสต์กลุ่มไม่สำเร็จ<br>
+      <span class="badge bg-bad">ลิงก์</span> ไม่เก็บลิงก์โพสต์ หรือเก็บลิงก์ผิด
+    </td>
+  </tr>
+  <tr>
+    <td><span class="team">แบรนด์</span></td>
+    <td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>กลุ่มได้แล้ว — แต่ติด Mouse Click ตอนพิมพ์ @Everyone หลังโพสต์เสร็จ</td>
+    <td><span class="badge bg-bad">Mouse Click</span> @Everyone</td>
+  </tr>
+  <tr>
+    <td><span class="team">ADS</span></td>
+    <td><span class="st-warn">⚠ ขึ้นกับ UI</span></td>
+    <td>UI ใหม่โพสไม่ได้ / UI เก่าโพสได้ปกติ</td>
+    <td><span class="badge bg-bad">UI Compat</span> Facebook เปลี่ยน UI</td>
+  </tr>
+</table>
+
+<!-- ===== 4. ADD FRIENDS 1.0.2 ===== -->
+<h1>4. <span class="ver">Add Friends 1.0.2</span></h1>
+<table>
+  <tr><th width="16%">ทีม</th><th width="12%">สถานะ</th><th width="40%">ปัญหาการใช้งาน</th><th width="32%">ปัญหาทางเทคนิค / บัญชี</th></tr>
+  <tr>
+    <td><span class="team">อินฟลู</span></td>
+    <td><span class="st-bad">✗ มีปัญหา</span></td>
+    <td>แอดได้ 1 คนแล้วหยุด / บางตัวไม่เจอเพื่อนให้แอด</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><span class="team">แบรนด์</span></td>
+    <td><span class="st-bad">✗ มีปัญหา</span></td>
+    <td>สุ่มแอดไม่ได้ — แอดคนแรกก่อนเสมอ</td>
+    <td><span class="badge bg-bad">ข้อจำกัด FB</span> แอดได้วันละ 2-5 คน / ควร warm ก่อนเพิ่มจำนวน</td>
+  </tr>
+  <tr>
+    <td><span class="team">ADS</span></td>
+    <td><span class="st-warn">⚠ ขึ้นกับ UID</span></td>
+    <td>UID กลุ่ม: แอด 1 คนแล้วเด้ง ✗ &nbsp; UID โปรไฟล์: ปกติ ✓</td>
+    <td>ไม่เจอ UID → ใช้ชื่อโปรไฟล์จากลิงก์แทนได้</td>
+  </tr>
+</table>
+
+<!-- ===== 5. LIKE & COMMENT ===== -->
+<h1>5. <span class="ver">Like & Comment</span></h1>
+<table>
+  <tr><th width="7%">Ver</th><th width="14%">ทีม</th><th width="10%">สถานะ</th><th width="37%">ปัญหาการใช้งาน</th><th width="32%">ปัญหาทางเทคนิค / บัญชี</th></tr>
+  <tr>
+    <td>1.6</td><td><span class="team">อินฟลู</span></td><td><span class="st-bad">✗ ไม่ทำงาน</span></td>
+    <td>เปิดโปรไฟล์ → Complete ทันที ไม่รันต่อ</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td>1.7</td><td><span class="team">อินฟลู</span></td><td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>บางตัวคอมเมนต์ไม่ได้แต่ไลค์ได้ / ทดลอง 1:1 โพสสำเร็จมากกว่า</td>
+    <td><span class="badge bg-bad">ข้อจำกัด FB</span> จำนวนจำกัด → แก้ด้วยใช้เพจ BM แทนโปรไฟล์</td>
+  </tr>
+  <tr>
+    <td>—</td><td><span class="team">ขายตรง-West</span></td><td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>ไลก์+คอมเมนต์ได้ แต่ไม่ครบจำนวนโปรไฟล์</td>
+    <td><span class="badge bg-bad">Bug</span> บางตัวไลก์คอมเมนต์แทนไลก์โพสต์</td>
+  </tr>
+</table>
+
+<div class="danger-box">
+  <strong>⚠ Critical — Ads:</strong> การใช้ Flow นี้บนโพสต์ที่ยิง Ads → แอดถูกปฏิเสธภายใน ~10 นาทีหลังอนุมัติ (ทั้งก่อนและหลังยิงแอด) / แต่ระบบภายนอกปั๊มไลค์แทน → แอดไม่ปลิว ✓ → ต้องตรวจสอบว่า Flow ทิ้ง footprint อะไร
+</div>
+
+<!-- ===== 6. SHARE ===== -->
+<h1>6. <span class="ver">Share</span></h1>
+<table>
+  <tr><th width="8%">Ver</th><th width="14%">ทีม</th><th width="10%">สถานะ</th><th width="36%">ปัญหาการใช้งาน</th><th width="32%">ปัญหาทางเทคนิค / บัญชี</th></tr>
+  <tr>
+    <td>1.0.7</td><td><span class="team">ขายตรง-West</span></td><td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>✓ แชร์โปรไฟล์+กลุ่ม+ใส่คอนเทนต์ &nbsp; ✗ บางตัวแชร์กลุ่มไม่ได้, ไม่ครบโพสต์</td>
+    <td><span class="badge bg-bad">ลิงก์</span> เก็บลิงก์โปรไฟล์แทนลิงก์โพสต์ / <span class="badge bg-bad">ข้อจำกัดกลุ่ม</span> อาจติด AI Facebook</td>
+  </tr>
+  <tr>
+    <td>1.0.7</td><td><span class="team">อินฟลู</span></td><td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>ใช้ได้แต่บางตัวติด Mouse Click — อาจเพิ่มใช้เพจแชร์</td>
+    <td><span class="badge bg-bad">Mouse Click</span></td>
+  </tr>
+  <tr>
+    <td>1.0.6/7</td><td><span class="team">แบรนด์</span></td><td><span class="st-ok">✓ ปกติ</span></td>
+    <td>ไม่ค่อยเกิดปัญหา</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td>1.0.6/7</td><td><span class="team">สตรีม</span></td><td><span class="st-warn">⚠ บางส่วน</span></td>
+    <td>แชร์ใส่คอนเทนต์ไม่มา</td>
+    <td>—</td>
+  </tr>
+</table>
+
+<div class="callout">
+  <strong>แนวทางแก้ไข:</strong> ถ้าแชร์เด้ง → กดแชร์ด้วยมือ 1 ครั้ง แล้วรันใหม่
+</div>
+
+<!-- ===== 7. VIEW LIVE 1.0.1 ===== -->
+<h1>7. <span class="ver">View Live 1.0.1</span></h1>
+<table>
+  <tr><th width="16%">ทีม</th><th width="12%">สถานะ</th><th width="40%">ปัญหาการใช้งาน</th><th width="32%">ปัญหาทางเทคนิค / ประสิทธิภาพ</th></tr>
+  <tr>
+    <td><span class="team">ขายตรง-West</span></td>
+    <td><span class="st-bad">✗ หนัก</span></td>
+    <td>บางตัวไม่เข้าดูไลฟ์ / ไม่คอมเมนต์ ไม่แชร์ / ดูได้แต่กดแค่ความรู้สึก</td>
+    <td><span class="badge bg-bad">Perf</span> รันหลายโปรไฟล์พร้อมกันไม่ได้ — ต้องทีละ 1<br><span class="badge bg-bad">Delay</span> ต้องเพิ่ม + ปรับปุ่มใน Flow<br><span class="badge bg-bad">เน็ต/RAM</span> ลดโปรแกรมอื่น, ปรับปรุงเน็ต, เพิ่ม RAM</td>
+  </tr>
+  <tr>
+    <td><span class="team">สตรีม</span></td>
+    <td><span class="st-bad">✗ หนัก</span></td>
+    <td>ไม่กดดูไลฟ์ / กดแค่ความรู้สึก / ใช้แชร์ไม่ได้ — แก้ด้วย 1.0.6/1.0.2</td>
+    <td><span class="badge bg-bad">Perf</span> รันทีละ 1 โปรไฟล์ / เปิด Chrome ได้ 6-7 โคม เกินนั้นคอมค้าง<br><span class="badge bg-bad">Gemlogin</span> ต้องรีเฟรชตลอด — dashboard ไม่อัพเดต</td>
+  </tr>
+  <tr>
+    <td><span class="team">แบรนด์</span></td>
+    <td><span class="st-bad">✗ ใช้ไม่ได้</span></td>
+    <td>แสดงความรู้สึกเป็นหลัก — ต้องเปลี่ยน Scale</td>
+    <td>ใช้ 1 โปรไฟล์, ปล่อยหน้าจอซ้อนทับ</td>
+  </tr>
+</table>
+
+<div class="callout">
+  <strong>หมายเหตุ:</strong> Flow 1.0.2 — สตรีมจากหน้าเพจใช้ได้ทันที ✓ / จากโปรไฟล์ต้องเปลี่ยน URL + ให้ Gemlogin เขียนสคริปต์แชร์/คอมเมนต์เพิ่ม
+</div>
+
+<!-- ===== 8. CHANGE LANGUAGE 1.0.1 ===== -->
+<h1>8. <span class="ver">Change Language 1.0.1</span> &nbsp; <span class="badge bg-ok">✓ ใช้งานได้</span></h1>
+<table>
+  <tr><th width="16%">ทีม</th><th width="16%">สถานะ</th><th width="68%">หมายเหตุ</th></tr>
+  <tr><td><span class="team">ADS</span></td><td><span class="st-ok">✓ ปกติ</span></td><td>เปลี่ยนภาษาอื่นๆ → อังกฤษ</td></tr>
+  <tr><td><span class="team">ขายตรง-West</span></td><td><span class="st-ok">✓ ปกติ</span></td><td>เปลี่ยนไทย→อังกฤษ — ข้อจำกัด: ถ้าไม่ได้ใช้ภาษาไทยจะไม่เปลี่ยน</td></tr>
+  <tr><td><span class="team">แบรนด์</span></td><td><span class="st-ok">✓ ปกติ</span></td><td>ใช้งานได้ทั้งหมด — ขึ้นอยู่กับโปรไฟล์ บางโปรไฟล์ไม่ทำงานตาม Flow</td></tr>
+</table>
+
+<!-- ===== 9. POST REELS ===== -->
+<h1>9. <span class="ver">Post Reels</span> &nbsp; <span class="badge bg-info">● ทดสอบ</span></h1>
+<table>
+  <tr><th width="16%">ทีม</th><th>ปัญหา</th></tr>
+  <tr><td><span class="team">อินฟลู</span></td><td>ติดปัญหา Delay (การหน่วงเวลา) — อยู่ระหว่างดำเนินการตามขั้นตอนขอ (อินฟลูสร้างตัวตนจำเป็นต้องใช้วิดีโอ)</td></tr>
+</table>
+
+<!-- ===== 10. OTHER FLOWS ===== -->
+<h1>10. สคริปต์อื่นๆ</h1>
+
+<h2>10.1 &nbsp; <span class="ver">แชร์ไลฟ์สตรีม</span> &nbsp; <span class="badge bg-warn">⚠ ใช้แทนกัน</span></h2>
+<table>
+  <tr><th width="16%">ทีม</th><th>รายละเอียด</th></tr>
+  <tr><td><span class="team">สตรีม</span></td><td>ยังใช้แชร์ไม่ได้ — ใช้ <span class="ver">1.0.6</span> หรือ <span class="ver">1.0.2</span> แทน (คอมเมนต์+แสดงความรู้สึกได้) — อยู่ระหว่างเลือกเวอร์ชัน</td></tr>
+</table>
+
+<h2>10.2 &nbsp; <span class="ver">คัดกลุ่มแชร์พร้อมแฮก</span> &nbsp; <span class="badge bg-info">● ทดสอบ</span></h2>
+<table>
+  <tr><th width="16%">ทีม</th><th>รายละเอียด</th></tr>
+  <tr><td><span class="team">อินฟลู</span></td><td>ดำเนินการทดสอบ</td></tr>
+</table>
+
+<hr>
+
+<!-- ===== CROSS-CUTTING ===== -->
+<h1>11. ปัญหาทั่วไป (Cross-Cutting)</h1>
+
+<h2>11.1 &nbsp; ประสิทธิภาพเครื่อง / อินเทอร์เน็ต</h2>
+<table>
+  <tr><th width="28%">ปัญหา</th><th width="14%">ทีม</th><th width="58%">รายละเอียด</th></tr>
+  <tr>
+    <td><strong>RAM ไม่พอ</strong></td>
+    <td><span class="team">ทุกทีม</span></td>
+    <td>RAM 32GB อาจไม่เพียงพอ — โกให้ทุกบริษัทสรุปสเปคคอมฯ ส่ง → นำไปคุยกับ Gemlogin</td>
+  </tr>
+  <tr>
+    <td><strong>Gemlogin 5.0.6 บัค</strong></td>
+    <td><span class="team">แบรนด์</span></td>
+    <td>ไม่แสดงการทำงาน — ต้อง Check → รี → ติ๊ก Check IP at start ก่อนทุกครั้ง / ต้องแบ่ง Run เป็นชุด — อาจทำงานไม่ได้ทุกโปรไฟล์</td>
+  </tr>
+  <tr>
+    <td><strong>IPv6 — QR Code ไม่โชว์</strong></td>
+    <td><span class="team">ADS</span></td>
+    <td>สแกนเติมเงินไม่แสดง ✓ แก้โดยคัดลอกลิงก์ไปเปิดใน Chrome ด้านนอก / Proxy — ยังใช้ยิง Ads ไม่ได้ (QR Code ไม่แสดง)</td>
+  </tr>
+  <tr>
+    <td><strong>อินเทอร์เน็ตไม่เสถียร</strong></td>
+    <td><span class="team">ขายตรง</span> · <span class="team">สตรีม</span></td>
+    <td>TikTok Live กระตุก/ติดเหลือง — ทดสอบ Bandwidth 50/50 → 100/100 / อนาคตอาจใช้เน็ตกัมพูชาผ่าน Proxy ทั้งหมด</td>
+  </tr>
+  <tr>
+    <td><strong>Proxy ฝัง Windows ไม่ได้</strong></td>
+    <td><span class="team">อินฟลู</span></td>
+    <td>ฝัง WiFi ใช้ได้ ✓ / ฝัง Windows ไม่ได้ ✗ (แม้ติดตั้งแอพแล้ว) — ต้องใช้แอพแปลง Proxy</td>
+  </tr>
+</table>
+
+<h2>11.2 &nbsp; ปัญหาบัญชี Facebook</h2>
+<table>
+  <tr><th width="28%">ปัญหา</th><th width="14%">ทีม</th><th width="58%">รายละเอียด</th></tr>
+  <tr><td><strong>สร้างเพจไม่ได้</strong></td><td><span class="team">แบรนด์</span></td><td>โปรไฟล์ที่วอร์มแล้ว — สร้างเพจไม่ได้ สร้างแล้วบิน</td></tr>
+  <tr><td><strong>ติด Location</strong></td><td><span class="team">ADS</span></td><td>บางบัญชีติดโลเคชั่น — โพสไม่ได้ / แต่บัญชีที่เคยโพสผ่านกลับมาใช้ใหม่ได้ปกติ → ยังระบุสาเหตุไม่ได้</td></tr>
+</table>
+
+<h2>11.3 &nbsp; Content / Account Types</h2>
+<table>
+  <tr><th width="28%">หมวด</th><th width="72%">รายการ (ทีมอินฟลู)</th></tr>
+  <tr><td>Content ที่ใช้</td><td>รูปภาพ, วิดีโอ</td></tr>
+  <tr><td>ประเภท Group</td><td>เฟสโปรไฟล์, เฟสถือ BM, เพจ, กลุ่ม (ออแกนิก/แฮก), เฟสหน้าม้า</td></tr>
+  <tr><td>Flow ที่ใช้</td><td><span class="ver">Warm</span> · <span class="ver">Post Page</span> · <span class="ver">Add Friends</span> · <span class="ver">Like & Comment</span> · <span class="ver">Share</span></td></tr>
+</table>
+
+<hr>
+
+<!-- ===== TIKTOK ===== -->
+<h1>12. ผลทดสอบ Proxy — TikTok</h1>
+<table>
+  <tr><th width="18%">Proxy</th><th width="12%">ทีม</th><th width="36%">ผลลัพธ์</th><th width="34%">ปัญหา</th></tr>
+  <tr>
+    <td><code>112.143.3.239</code></td>
+    <td><span class="team">ขายตรง</span></td>
+    <td><span class="badge bg-ok">✓</span> ปักตะกร้า IP ตรง &nbsp; <span class="badge bg-ok">✓</span> ฟีดไทย &nbsp; คนดูสูงสุด 18 คน</td>
+    <td>เน็ตไม่เสถียร — ติดเหลือง/กระตุก, Live ~3 นาที</td>
+  </tr>
+  <tr>
+    <td><code>112.143.2.38</code></td>
+    <td><span class="team">อินฟลู</span></td>
+    <td><span class="badge bg-ok">✓</span> WiFi ได้ &nbsp; <span class="badge bg-ok">✓</span> IP ไทยตรง &nbsp; <span class="badge bg-ok">✓</span> ขึ้น Live ได้</td>
+    <td>ฝัง Windows ไม่ได้, ยังโดนละเมิด, ต้องใช้แอพแปลง Proxy</td>
+  </tr>
+</table>
+
+<hr>
+
+<!-- ===== SOLUTIONS ===== -->
+<h1>13. แนวทางแก้ไขที่ดำเนินการแล้ว</h1>
+<table>
+  <tr><th width="4%">#</th><th width="20%">ปัญหา</th><th width="30%">แนวทางแก้ไข</th><th width="14%">ทีม</th><th width="14%">สคริปต์</th></tr>
+  <tr><td>1</td><td>Login เฟส</td><td>ปรึกษาทีมขายตรง — นำมาปรับใช้แล้ว</td><td><span class="team">อินฟลู</span></td><td>—</td></tr>
+  <tr><td>2</td><td>โพสต์วิดีโอกลุ่ม</td><td>ปรึกษาทีมขายตรงที่โพสต์วิดีโอกลุ่มได้</td><td><span class="team">อินฟลู</span></td><td><span class="ver">Post Page</span></td></tr>
+  <tr><td>3</td><td>แชร์เด้ง</td><td>กดแชร์ด้วยมือ 1 ครั้ง แล้วรันใหม่</td><td><span class="team">ขายตรง-West</span></td><td><span class="ver">Share</span></td></tr>
+  <tr><td>4</td><td>แชร์กลุ่มอื่นไม่ได้</td><td>อาจติดข้อจำกัดของกลุ่มหรือ AI Facebook</td><td><span class="team">ขายตรง-West</span></td><td><span class="ver">Share</span></td></tr>
+  <tr><td>5</td><td>View Live ไม่ทำงาน</td><td>เพิ่ม Delay + ปรับปุ่ม + รันทีละ 1 + ลดโปรแกรมอื่น + เพิ่มเน็ต/RAM</td><td><span class="team">ขายตรง-West</span></td><td><span class="ver">View Live</span></td></tr>
+  <tr><td>6</td><td>View Live scale</td><td>ใช้ 1 โปรไฟล์ ปล่อยหน้าจอซ้อนทับ</td><td><span class="team">แบรนด์</span></td><td><span class="ver">View Live</span></td></tr>
+  <tr><td>7</td><td>QR Code ไม่แสดง (IPv6)</td><td>คัดลอกลิงก์ไปเปิดใน Chrome ด้านนอก ✓</td><td><span class="team">ADS</span></td><td>—</td></tr>
+  <tr><td>8</td><td>Flow ทำแอดปลิว</td><td>ใช้ระบบภายนอกปั๊มไลค์แทน (แอดไม่ปลิว)</td><td><span class="team">ADS</span></td><td><span class="ver">Like & Comment</span></td></tr>
+  <tr><td>9</td><td>Gemlogin 5.0.6 บัค</td><td>Check → รี → Check IP at start → แบ่ง Run เป็นชุด</td><td><span class="team">แบรนด์</span></td><td>—</td></tr>
+</table>
+
+<hr>
+
+<!-- ===== ACTION PLANS ===== -->
+<h1>14. Action Plans</h1>
+
+<div class="callout"><strong>1. ทุกบริษัท</strong> — รวบรวมปัญหา + อัดวิดีโอหน้าจอ <span class="ver">Flow 1.0.2</span> และ <span class="ver">1.0.8</span> → ส่งกลุ่ม → รวบรวมส่ง Gemlogin แก้สคริปต์</div>
+<div class="callout"><strong>2. ทุกบริษัท</strong> — สรุปการสตรีมลงกลุ่ม: หน้าโปรไฟล์ / เพจ / กลุ่ม</div>
+<div class="callout"><strong>3. Supervisor ทุกบริษัท</strong> — ส่ง Flow ทั้งหมดที่ใช้ปัจจุบันลงกลุ่ม → พี่บิ๊กตรวจสอบ</div>
+<div class="callout"><strong>4. ทุกบริษัท</strong> — สรุปสเปคคอมฯ ส่งให้โก (RAM 32GB อาจไม่พอ) → คุยกับ Gemlogin</div>
+<div class="callout"><strong>5. ทีมสตรีม</strong> — นำ Flow ไปให้น้องใช้ → เก็บปัญหา → อัปเดตกลุ่ม → ซุปอัปเดตรายทีม</div>
+<div class="callout"><strong>6. การเข้าร่วมประชุม</strong> — ทีมงานทุกคน (รวมซุป + ทีมเนเจอร์ 168) ต้องเข้าประชุมทุกครั้ง</div>
+<div class="callout"><strong>7. Gemlogin</strong> — อัปเดต Flow → ส่งข้อมูลวันอังคาร 14 ก.ค. 2026</div>
+
+<hr>
+
+<p style="text-align:center; color:#94a3b8; font-size:7pt; margin-top:16px;">
+Gemlogin Issue Report · 13 ก.ค. 2026 · JIMMY 🌊<br>
+ทีม: อินฟลู · แบรนด์ · ขายตรง-West · ADS · สตรีม
+</p>
+
+</body>
+</html>
