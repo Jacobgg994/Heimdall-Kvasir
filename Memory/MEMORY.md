@@ -1,4 +1,12 @@
-- [Team Structure & Kvasir Members](team-structure.md) — 8 members (JACOB + 7 Kvasirs), roles, reporting lines
+- [Team Structure & Kvasir Members](team-structure.md) — 20 members (JACOB + 19 Kvasirs), roles, reporting lines
+- [Android ROM Learning Repos](android-rom-learning-repos.md) — Curated repos & guides for each team member (NOVA team, 7 คน) — **ใช้ /learn [repo] ได้**
+- [Android ROM Creation Guide](android-rom-creation-guide.md) — สร้าง ROM ใหม่จากศูนย์ตามสเปค 9 phases
+- [TOP OS Engineer Curriculum](top-os-engineer-curriculum.md) — Systematic 10-Level curriculum สู่ OS Engineer ระดับโลก
+- [Samsung Firmware Resources](samsung-firmware-resources.md) — Samsung stock ROM download, Odin flashing, TWRP, vendor blobs extraction
+- [Device Farm Inventory](device-farm-inventory.md) — GEMMY's phone farm (PENDING — รอข้อมูล device จาก JACOB)
 - [Content Plan Repos](content-plan-repos.md) — 2 repos created 2026-06-30: content-plan + blog-articles
 - [Content Rules & Decisions](content-rules.md) — No QCCAP, no discounts, balanced weekly mix
+- [GemLogin Workflow Edge Format](gemlogin-workflow-edge-format.md) — Condition handles: output-{id} NOT output-cond-{id}, VueFlow edge fields, DB format
+- [GemLogin Workflow Rules](gemlogin-workflow-rules.md) — 10 rules ก่อนสร้าง workflow + วิธี DB-first
+- [Device Farm Lessons](device-farm-lessons.md) — ADB WiFi, Note 8 specs, Termux, on-device LLM
 - [July 2026 Content Strategy](july-2026-content-strategy.md) — Overall direction, key decisions, approach

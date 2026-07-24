@@ -4,7 +4,9 @@
 # ============================================================
 # Triggered by: Claude Code hooks, manual, or cron
 # Direction:    Bidirectional (controlled by --to flag)
+# Git:          Auto-commit + push (when --git flag used)
 # ============================================================
+AUTO_GIT=true  # Set to false to disable auto git push
 
 set -e
 
@@ -53,6 +55,19 @@ case "${1:-sync}" in
         touch "$AIPROJECT_SKILLS/.last-sync"
         count=$(find "$AIPROJECT_SKILLS" -maxdepth 1 -type d | wc -l)
         log "Done! $count skills synced to AIproject"
+
+        # Auto git push
+        if [ "${AUTO_GIT:-true}" = "true" ]; then
+            cd "$AIPROJECT_SKILLS/.."
+            if git diff --quiet && git diff --cached --quiet; then
+                log "Git: no changes to commit"
+            else
+                git add -A
+                git commit -m "auto: sync skills ($(date '+%Y-%m-%d %H:%M'))" 2>&1 | tail -1 | tee -a "$LOG_FILE"
+                git push origin main 2>&1 | tail -1 | tee -a "$LOG_FILE"
+                log "Git: pushed to origin"
+            fi
+        fi
         ;;
 
     to-claude|restore)

@@ -1,13 +1,22 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(gh:*)", "Bash(git:*)", "Bash(bun:*)", 
-      "Bash(mkdir:*)", "Bash(date:*)", "Bash(ls:*)",
-      "Bash(*Kvasir/*)", "Bash(*psi/*)",
-      "Skill(learn)", "Skill(trace)", "Skill(awaken)",
-      "Skill(recap)", "Skill(project)", "Skill(philosophy)",
-      "Skill(gemlogin)", "Skill(gemlogin-edit)", 
-      "Skill(gemlogin-tiktok)", "Skill(boxphone-thai-growth)"
+  "model": "opus",
+  "enabledPlugins": {
+    "telegram@claude-plugins-official": true
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/AIproject/sync-skills.sh sync",
+            "async": true
+          }
+        ]
+      }
     ]
   }
 }
