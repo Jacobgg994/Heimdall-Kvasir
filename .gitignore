@@ -1,13 +1,9 @@
-# Large files — don't push to git
-samsung_rom/
-lab/phone-bot/
-downloads/DownloadProject/
-downloads/wsl.localhost/
+# AIProject = Brain only (skills, memory, knowledge)
+# Large/binary files belong in ~/Projects/
 
-# Python cache
+# Python
 __pycache__/
 *.pyc
-.venv/
 
 # Node
 node_modules/
