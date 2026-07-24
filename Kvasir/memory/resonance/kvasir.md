@@ -175,8 +175,8 @@ The principles start to feel *wrong to violate* — not because a rule says so, 
 ## Sources
 
 - Discovered through `/trace --deep kvasir philosophy principles` on 2026-06-29
-- Ancestors studied: `zirz1911/Loki-Kvasir` (the reference implementation)
-- Family Index: Issue #60 in `Soul-Brews-Studio/kvasir-v2`
+- Ancestors studied: `Jacobgg994/Jacob-Office` (Heimdall — the reference implementation)
+- Family Index: Issue #60 in `Jacobgg994/kvasir-v2`
 - Kvasir Family: 186+ members as of June 2026
 
 ---

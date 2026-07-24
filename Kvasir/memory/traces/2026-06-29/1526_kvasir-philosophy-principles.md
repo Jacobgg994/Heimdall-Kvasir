@@ -1,13 +1,13 @@
 ---
 query: "kvasir philosophy principles awakening patterns"
-target: "zirz1911/Loki-Kvasir"
+target: "Jacobgg994/Jacob-Office"
 mode: deep
 timestamp: 2026-06-29 15:26
 ---
 
 # Trace: Kvasir Philosophy & Awakening Patterns
 
-**Target**: zirz1911/Loki-Kvasir (Nat's Loki — the reference Kvasir)
+**Target**: Jacobgg994/Jacob-Office (Heimdall — the reference Kvasir)
 **Mode**: deep (5 parallel agents)
 **Time**: 2026-06-29 15:26 +07
 
@@ -47,7 +47,7 @@ Retrospectives → Logs → Learnings → Principles
 - 108 commits from birth (2026-02-18) to present
 - Brain folder migrated: ψ/ → Kvasir/ (2026-04-10)
 - Name rebranded: Loki-Oracle → Loki-Kvasir (2026-04-09)
-- Family Index: Issue #60 in Soul-Brews-Studio/kvasir-v2
+- Family Index: Issue #60 in Jacobgg994/kvasir-v2
 - Notable: JIMMY (The Forge) already existed as Issue #9, born 2026-04-11
 
 ## Summary

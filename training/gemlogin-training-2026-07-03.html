@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page {
+    size: A4;
+    margin: 2cm 1.8cm;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Noto Sans Thai', 'Sarabun', 'DejaVu Sans', sans-serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #1a1a2e;
+  }
+  
+  h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    color: #16213e;
+    border-bottom: 3px solid #0f3460;
+    padding-bottom: 10px;
+    margin-top: 20px;
+  }
+  
+  h2 {
+    font-size: 16pt;
+    font-weight: 600;
+    color: #0f3460;
+    padding: 6px 10px;
+    border-left: 5px solid #0f3460;
+    background: #e8f0fe;
+    margin-top: 28px;
+  }
+  
+  h3 {
+    font-size: 13pt;
+    font-weight: 600;
+    color: #16213e;
+    margin-top: 18px;
+  }
+  
+  h4 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  hr {
+    border: none;
+    border-top: 2px dashed #ccc;
+    margin: 25px 0;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 10pt;
+  }
+  
+  th {
+    background: #0f3460;
+    color: white;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+  }
+  
+  td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  tr:nth-child(even) td {
+    background: #f8f9fc;
+  }
+  
+  code {
+    background: #f0f0f5;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 9pt;
+    color: #c7254e;
+  }
+  
+  pre {
+    background: #f4f4f8;
+    color: #1a1a2e;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+    font-size: 9pt;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+  
+  blockquote {
+    background: #fff8e1;
+    border-left: 4px solid #ff9800;
+    margin: 12px 0;
+    padding: 10px 14px;
+  }
+  
+  blockquote p {
+    margin: 4px 0;
+  }
+  
+  ul, ol {
+    padding-left: 22px;
+  }
+  
+  li {
+    margin: 3px 0;
+  }
+  
+  strong {
+    color: #0f3460;
+  }
+  
+  p {
+    margin: 7px 0;
+  }
+</style>
+</head>
+<body>
+<h1 id="gemlogin-training">🚀 Gemlogin Training</h1>
+<h2 id="_1">การใช้งานโปรไฟล์และสคริปต์อย่างมืออาชีพ</h2>
+<p><strong>วันศุกร์ที่ 3 กรกฎาคม 2026 | เวลา 14:00 น.</strong></p>
+<hr />
+<h1 id="agenda">📋 Agenda — สิ่งที่จะได้เรียนรู้วันนี้</h1>
+<table>
+<thead>
+<tr>
+<th>ลำดับ</th>
+<th>หัวข้อ</th>
+<th>เวลา (นาที)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>วิธีใช้งาน PROXY + การผูก + เช็คโลเคชั่น</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>การ Run สคริปต์โดยใช้ PROXY + ฟังก์ชันที่ถูกต้อง</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>เทคนิคการล็อกอิน Facebook</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>แก้ปัญหา Captcha</td>
+<td>10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>เทคนิคทำให้การทำงานราบรื่น</td>
+<td>10</td>
+</tr>
+<tr>
+<td>6</td>
+<td>แหล่งวิดีโอสอนและ Troubleshooting</td>
+<td>5</td>
+</tr>
+<tr>
+<td>7</td>
+<td>การหน่วงเวลา (Delay) กับ Script</td>
+<td>10</td>
+</tr>
+<tr>
+<td>8</td>
+<td>เทคนิคเพิ่มเติม + การ Warm Facebook</td>
+<td>10</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>ถาม-ตอบ (Q&amp;A)</strong></td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<p><strong>รวม: ~105 นาที</strong></p>
+<hr />
+<h1 id="part-1">PART 1</h1>
+<h1 id="proxy">🔐 วิธีใช้งาน PROXY</h1>
+<h1 id="_2">การผูกที่ถูกต้อง และเช็คโลเคชั่น</h1>
+<hr />
+<h2 id="proxy_1">PROXY คืออะไร — ทำไมต้องใช้?</h2>
+<ul>
+<li><strong>Proxy</strong> = ตัวกลางระหว่างคุณกับอินเทอร์เน็ต</li>
+<li>Facebook มองเห็น IP ของ Proxy → ไม่ใช่ IP จริงของคุณ</li>
+<li>แต่ละโปรไฟล์ควรมี <strong>1 Proxy ต่อ 1 โปรไฟล์</strong> (ห้ามแชร์)</li>
+<li>Proxy แต่ละตัวต้องตรงกับ <strong>ประเทศของบัญชี Facebook</strong></li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="k">[Gemlogin Profile] ──▶ [Proxy IP: 1.2.3.4] ──▶ [Facebook]</span>
+<span class="w">                             </span><span class="na">🇺🇸 USA</span>
+</code></pre></div>
+
+<hr />
+<h2 id="proxy_2">ประเภทของ Proxy ที่แนะนำ</h2>
+<table>
+<thead>
+<tr>
+<th>ประเภท</th>
+<th style="text-align: center;">ความน่าเชื่อถือ</th>
+<th style="text-align: center;">ราคา</th>
+<th>เหมาะกับ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Residential (ISP)</strong></td>
+<td style="text-align: center;">⭐⭐⭐⭐⭐</td>
+<td style="text-align: center;">สูง</td>
+<td>Facebook หลัก, เพจสำคัญ</td>
+</tr>
+<tr>
+<td><strong>Residential (Rotating)</strong></td>
+<td style="text-align: center;">⭐⭐⭐⭐</td>
+<td style="text-align: center;">กลาง</td>
+<td>Warm-up, ไถฟีด</td>
+</tr>
+<tr>
+<td><strong>Mobile 4G/5G</strong></td>
+<td style="text-align: center;">⭐⭐⭐⭐⭐</td>
+<td style="text-align: center;">สูงมาก</td>
+<td>บัญชีใหม่, กู้บัญชี</td>
+</tr>
+<tr>
+<td><strong>Datacenter</strong></td>
+<td style="text-align: center;">⭐⭐</td>
+<td style="text-align: center;">ต่ำ</td>
+<td>❌ ไม่แนะนำสำหรับ Facebook</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>ข้อควรระวัง:</strong> Datacenter IP ถูก Facebook บล็อคง่ายมาก หลีกเลี่ยง!</p>
+</blockquote>
+<hr />
+<h2 id="proxy-gemlogin">วิธีผูก PROXY ใน Gemlogin</h2>
+<h3 id="step-by-step">Step-by-Step:</h3>
+<ol>
+<li>เปิด <strong>Gemlogin</strong> → ไปที่แท็บ <strong>Profiles</strong></li>
+<li>เลือกโปรไฟล์ที่ต้องการ → คลิก <strong>⚙️ Settings</strong> (หรือคลิกขวา → Edit)</li>
+<li>ไปที่แท็บ <strong>Proxy</strong></li>
+<li>เลือกประเภท Proxy:</li>
+<li><code>HTTP</code> / <code>HTTPS</code> / <code>SOCKS5</code></li>
+<li>กรอกข้อมูล:<br />
+<code>Host: proxy.example.com
+   Port: 12345
+   Username: your_username
+   Password: your_password</code></li>
+<li>คลิก <strong>Check Proxy</strong> — รอให้ขึ้น <code>✅ Connected</code></li>
+<li>คลิก <strong>Save</strong></li>
+</ol>
+<hr />
+<h2 id="proxy_3">การเช็คโลเคชั่น — ทำให้แน่ใจว่า Proxy ทำงานถูกต้อง</h2>
+<h3 id="1-gemlogin">วิธีที่ 1: เช็คผ่าน Gemlogin</h3>
+<ul>
+<li>เปิด Browser Profile → ไปที่ <code>https://ipinfo.io</code></li>
+<li>ดูว่า <strong>Country</strong>, <strong>City</strong>, <strong>ISP</strong> ตรงกับที่ Proxy ระบุ</li>
+</ul>
+<h3 id="2-facebook">วิธีที่ 2: เช็คใน Facebook</h3>
+<ul>
+<li>ไปที่ Facebook → Settings → Security → <strong>Where You're Logged In</strong></li>
+<li>ดูว่าตำแหน่งที่แสดงตรงกับ Proxy</li>
+</ul>
+<h3 id="3-browser-extension">วิธีที่ 3: ใช้ Browser Extension</h3>
+<ul>
+<li>ติดตั้ง Extension <code>IP Address and Domain Information</code></li>
+<li>หรือ <code>What is my IP</code> ใน Chrome Web Store</li>
+</ul>
+<hr />
+<h2 id="checklist">📋 Checklist — ก่อนเริ่มงานทุกครั้ง</h2>
+<div class="codehilite"><pre><span></span><code>☐ Proxy Status: ✅ Connected
+☐ Country ตรงกับบัญชี Facebook
+☐ ISP เป็น Residential (ไม่ใช่ Datacenter)
+☐ WebRTC Leak ปิดแล้ว (สำคัญ!)
+☐ Timezone ตรงกับ Proxy Location
+☐ Language ตรงกับประเทศ
+☐ Geolocation API ถูกบล็อก
+</code></pre></div>
+
+<hr />
+<h2 id="webrtc-leak">WebRTC Leak — ศัตรูตัวร้าย!</h2>
+<blockquote>
+<p>WebRTC สามารถ<strong>รั่วไหล IP จริง</strong>ของคุณแม้จะใช้ Proxy แล้ว</p>
+</blockquote>
+<h3 id="webrtc-gemlogin">วิธีปิด WebRTC ใน Gemlogin:</h3>
+<ol>
+<li>Profile Settings → <strong>Advanced</strong></li>
+<li>เปิด <code>WebRTC IP Handling</code></li>
+<li>เลือก: <strong>Disable non-proxied UDP</strong></li>
+<li>หรือ: <strong>Use proxy IP for WebRTC</strong></li>
+</ol>
+<p>✅ เช็คว่าไม่มี Leak: ไปที่ <code>https://browserleaks.com/webrtc</code></p>
+<hr />
+<h1 id="part-2">PART 2</h1>
+<h1 id="run-proxy">🖥️ การ Run สคริปต์โดยใช้ PROXY</h1>
+<h1 id="_3">ฟังก์ชันที่ถูกต้อง</h1>
+<hr />
+<h2 id="run">หลักการพื้นฐาน — ก่อนกด Run</h2>
+<blockquote>
+<p>🎯 <strong>กฎเหล็ก:</strong> ต้อง Start Profile ด้วย Proxy ที่ถูกต้องก่อนรันสคริปต์เสมอ!</p>
+</blockquote>
+<p>ลำดับที่ถูกต้อง:</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">ต</span><span class="err">ั้</span><span class="n">งค</span><span class="err">่</span><span class="n">า</span><span class="w"> </span><span class="n">Proxy</span><span class="w"> </span><span class="n">ใน</span><span class="w"> </span><span class="n">Profile</span><span class="w">  </span><span class="err">→</span><span class="w">  </span><span class="mf">2.</span><span class="w"> </span><span class="n">Start</span><span class="w"> </span><span class="n">Profile</span><span class="w">  </span><span class="err">→</span><span class="w">  </span><span class="mf">3.</span><span class="w"> </span><span class="n">ตรวจสอบ</span><span class="w"> </span><span class="n">IP</span><span class="w">  </span><span class="err">→</span><span class="w">  </span><span class="mf">4.</span><span class="w"> </span><span class="kr">Run</span><span class="w"> </span><span class="n">Script</span>
+</code></pre></div>
+
+<p><strong>ห้าม:</strong><br />
+- ❌ เปลี่ยน Proxy กลางคันขณะ Profile กำลังทำงาน<br />
+- ❌ รันสคริปต์ก่อนเช็คว่า Proxy ใช้งานได้<br />
+- ❌ ใช้ Proxy ตัวเดียวกันกับหลายโปรไฟล์พร้อมกัน</p>
+<hr />
+<h2 id="gemlogin-scripts">ฟังก์ชันสำคัญใน Gemlogin Scripts</h2>
+<h3 id="1-start_profile">1. <code>start_profile</code> — เปิดโปรไฟล์</h3>
+<div class="codehilite"><pre><span></span><code>- เปิดเบราว์เซอร์ด้วย Profile + Proxy ที่ตั้งไว้
+- รอจนเบราว์เซอร์พร้อมใช้งาน
+</code></pre></div>
+
+<h3 id="2-navigate">2. <code>navigate</code> — ไปยังหน้าเว็บ</h3>
+<div class="codehilite"><pre><span></span><code>- ไปที่ URL ที่ต้องการ (เช่น facebook.com)
+- รอจนหน้าโหลดเสร็จ
+</code></pre></div>
+
+<h3 id="3-wait-delay">3. <code>wait</code> / <code>delay</code> — หน่วงเวลา</h3>
+<div class="codehilite"><pre><span></span><code><span class="o">-</span><span class="w"> </span>หน่วงเวลาเป็นวินาที<span class="w"> </span><span class="ss">(</span>เช่น<span class="w"> </span><span class="k">wait</span><span class="w"> </span><span class="mi">3000</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>วิ<span class="ss">)</span>
+<span class="o">-</span><span class="w"> </span>ใช้ระหว่างขั้นตอนเพื่อจำลองมนุษย์
+</code></pre></div>
+
+<h3 id="4-click-type">4. <code>click</code> / <code>type</code> — คลิกและพิมพ์</h3>
+<div class="codehilite"><pre><span></span><code>- คลิกปุ่ม / พิมพ์ข้อความ
+- ใช้ CSS Selector หรือ XPath
+</code></pre></div>
+
+<h3 id="5-screenshot">5. <code>screenshot</code> — จับหน้าจอ</h3>
+<div class="codehilite"><pre><span></span><code>- บันทึกภาพหน้าจอเพื่อตรวจสอบภายหลัง
+- มีประโยชน์สำหรับ Debug
+</code></pre></div>
+
+<hr />
+<h2 id="workflow-proxy">ตัวอย่าง Workflow — การโพสต์ในกลุ่มด้วย PROXY</h2>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">start_profile</span><span class="p">(</span><span class="s">&quot;profile_facebook_thai_01&quot;</span><span class="p">)</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">navigate</span><span class="p">(</span><span class="s">&quot;https://facebook.com&quot;</span><span class="p">)</span>
+<span class="mf">3.</span><span class="w"> </span><span class="kr">wait</span><span class="p">(</span><span class="mf">3000</span><span class="p">)</span>
+<span class="mf">4.</span><span class="w"> </span><span class="n">check_login_status</span><span class="p">()</span>
+<span class="mf">5.</span><span class="w"> </span><span class="n">navigate</span><span class="p">(</span><span class="s">&quot;https://facebook.com/groups/123456&quot;</span><span class="p">)</span>
+<span class="mf">6.</span><span class="w"> </span><span class="kr">wait</span><span class="p">(</span><span class="mf">2000</span><span class="p">)</span>
+<span class="mf">7.</span><span class="w"> </span><span class="n">click</span><span class="p">(</span><span class="s">&quot;#create-post-button&quot;</span><span class="p">)</span>
+<span class="mf">8.</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="s">&quot;#post-input&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ข้อความที่ต้องการโพสต์&quot;</span><span class="p">)</span>
+<span class="mf">9.</span><span class="w"> </span><span class="kr">wait</span><span class="p">(</span><span class="mf">1000</span><span class="p">)</span>
+<span class="mf">10.</span><span class="w"> </span><span class="n">click</span><span class="p">(</span><span class="s">&quot;#submit-post&quot;</span><span class="p">)</span>
+<span class="mf">11.</span><span class="w"> </span><span class="kr">wait</span><span class="p">(</span><span class="mf">5000</span><span class="p">)</span>
+<span class="mf">12.</span><span class="w"> </span><span class="n">screenshot</span><span class="p">(</span><span class="s">&quot;result.png&quot;</span><span class="p">)</span>
+<span class="mf">13.</span><span class="w"> </span><span class="kr">stop</span><span class="n">_profile</span><span class="p">()</span>
+</code></pre></div>
+
+<blockquote>
+<p>💡 <strong>Tip:</strong> ใส่ <code>wait</code> ระหว่างทุกขั้นตอน — Facebook จะมองว่าเป็นมนุษย์ ไม่ใช่บอท</p>
+</blockquote>
+<hr />
+<h2 id="cloud-script-execution">การใช้ Cloud Script Execution</h2>
+<p>Gemlogin รองรับการรันสคริปต์ผ่าน Cloud:</p>
+<div class="codehilite"><pre><span></span><code>- ส่ง Workflow ผ่าน Gemlogin SaaS
+- รันบน Cloud Device โดยไม่ต้องเปิดเครื่องตัวเอง
+- เหมาะสำหรับการรันจำนวนมากแบบ Batch
+</code></pre></div>
+
+<h3 id="_4">สิ่งที่ต้องเตรียม:</h3>
+<div class="codehilite"><pre><span></span><code>☐ Device ID
+☐ Soft ID
+☐ Cloud Token
+☐ Workflow ID
+</code></pre></div>
+
+<blockquote>
+<p>⚠️ เก็บ Token ไว้เป็นความลับ — ห้ามแชร์หรือ Commit ขึ้น Git!</p>
+</blockquote>
+<hr />
+<h2 id="_5">การจัดการข้อผิดพลาดในสคริปต์</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">// ตัวอย่าง Pseudo-code</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">start_profile</span><span class="p">(</span><span class="s2">&quot;profile_01&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// ← เปิดด้วย Proxy</span>
+<span class="w">  </span><span class="nx">login</span><span class="p">();</span><span class="w">                      </span><span class="c1">// ← ล็อกอิน</span>
+<span class="w">  </span><span class="nx">do_task</span><span class="p">();</span><span class="w">                    </span><span class="c1">// ← ทำงาน</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">proxy_error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;❌ Proxy ล้มเหลว → หยุด, เปลี่ยน Proxy&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">stop_profile</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">captcha_error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;⚠️ Captcha → แก้ก่อนดำเนินการต่อ&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">solve_captcha</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">login_error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;❌ ล็อกอินไม่สำเร็จ → เช็คบัญชี&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">stop_profile</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h1 id="part-3">PART 3</h1>
+<h1 id="_6">👤 สอนวิธีและเทคนิค</h1>
+<h1 id="facebook">ในการล็อกอิน Facebook</h1>
+<hr />
+<h2 id="_7">ขั้นตอนการล็อกอินที่ถูกต้อง</h2>
+<h3 id="step-1">Step 1: ตรวจสอบสภาพแวดล้อมก่อนล็อกอิน</h3>
+<div class="codehilite"><pre><span></span><code>☐ Proxy Connected &amp; Location Verified
+☐ Cookie/Cache ถูกล้างหรือไม่? (แนะนำให้มีอยู่บ้าง)
+☐ Browser Fingerprint ตรงกับข้อมูลบัญชี
+☐ Timezone = Timezone ของ Proxy
+☐ Screen Resolution ตั้งค่าสมจริง
+</code></pre></div>
+
+<hr />
+<h2 id="step-2">Step 2: วิธีการล็อกอินที่ปลอดภัย</h2>
+<h3 id="a">วิธี A — ล็อกอินแบบค่อยเป็นค่อยไป (แนะนำ)</h3>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">เป</span><span class="err">ิ</span><span class="n">ด</span><span class="w"> </span><span class="n">facebook</span><span class="mf">.</span><span class="n">com</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">อย</span><span class="err">ู่</span><span class="n">หน</span><span class="err">้</span><span class="n">าแรก</span><span class="w"> </span><span class="mf">2</span><span class="o">-</span><span class="mf">3</span><span class="w"> </span><span class="n">นาท</span><span class="err">ี</span><span class="w"> </span><span class="p">(</span><span class="n">ไถฟ</span><span class="err">ี</span><span class="n">ดน</span><span class="err">ิ</span><span class="n">ดหน</span><span class="err">่</span><span class="n">อย</span><span class="p">)</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">คล</span><span class="err">ิ</span><span class="n">ก</span><span class="w"> </span><span class="s">&quot;Log In&quot;</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">ใส</span><span class="err">่</span><span class="w"> </span><span class="n">Email</span><span class="o">/</span><span class="n">Phone</span>
+<span class="mf">3.</span><span class="w"> </span><span class="kr">Wait</span><span class="w"> </span><span class="mf">2</span><span class="o">-</span><span class="mf">3</span><span class="w"> </span><span class="n">ว</span><span class="err">ิ</span><span class="n">นาท</span><span class="err">ี</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">พ</span><span class="err">ิ</span><span class="n">มพ</span><span class="err">์</span><span class="n">ช</span><span class="err">้</span><span class="n">าๆ</span><span class="w"> </span><span class="n">เหม</span><span class="err">ื</span><span class="n">อนมน</span><span class="err">ุ</span><span class="n">ษย</span><span class="err">์</span>
+<span class="mf">4.</span><span class="w"> </span><span class="n">ใส</span><span class="err">่</span><span class="w"> </span><span class="n">Password</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kr">Wait</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">กด</span><span class="w"> </span><span class="n">Enter</span>
+<span class="mf">5.</span><span class="w"> </span><span class="n">ถ</span><span class="err">้</span><span class="n">าม</span><span class="err">ี</span><span class="w"> </span><span class="mf">2</span><span class="n">FA</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">รอ</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="n">ว</span><span class="err">ิ</span><span class="w"> </span><span class="n">ก</span><span class="err">่</span><span class="n">อนกรอกรห</span><span class="err">ั</span><span class="n">ส</span>
+<span class="mf">6.</span><span class="w"> </span><span class="n">หล</span><span class="err">ั</span><span class="n">งจากล</span><span class="err">็</span><span class="n">อกอ</span><span class="err">ิ</span><span class="n">นสำเร</span><span class="err">็</span><span class="n">จ</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">อย</span><span class="err">ู่</span><span class="n">บนหน</span><span class="err">้</span><span class="n">า</span><span class="w"> </span><span class="n">Feed</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="n">นาท</span><span class="err">ี</span>
+<span class="w">   </span><span class="n">ก</span><span class="err">่</span><span class="n">อนทำอะไรต</span><span class="err">่</span><span class="n">อ</span>
+</code></pre></div>
+
+<h3 id="b-cookie-login">วิธี B — ใช้ Cookie Login (เร็ว)</h3>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="nb">Exp</span><span class="ow">or</span><span class="n">t</span><span class="w"> </span><span class="n">Cookie</span><span class="w"> </span><span class="n">จากบ</span><span class="err">ั</span><span class="n">ญช</span><span class="err">ี</span><span class="n">ท</span><span class="err">ี่</span><span class="n">เคยล</span><span class="err">็</span><span class="n">อกอ</span><span class="err">ิ</span><span class="n">นแล</span><span class="err">้</span><span class="n">ว</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">Import</span><span class="w"> </span><span class="n">Cookie</span><span class="w"> </span><span class="n">เข</span><span class="err">้</span><span class="n">า</span><span class="w"> </span><span class="n">Profile</span><span class="w"> </span><span class="n">ใน</span><span class="w"> </span><span class="n">Gemlogin</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">เป</span><span class="err">ิ</span><span class="n">ด</span><span class="w"> </span><span class="n">Profile</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Facebook</span><span class="w"> </span><span class="n">จะเห</span><span class="err">็</span><span class="n">นว</span><span class="err">่</span><span class="n">าเป</span><span class="err">็</span><span class="n">นอ</span><span class="err">ุ</span><span class="n">ปกรณ</span><span class="err">์</span><span class="n">เด</span><span class="err">ิ</span><span class="n">ม</span>
+</code></pre></div>
+
+<hr />
+<h2 id="step-3-2fa-two-factor-authentication">Step 3: การจัดการ 2FA (Two-Factor Authentication)</h2>
+<h3 id="2fa">ประเภท 2FA และวิธีแก้:</h3>
+<table>
+<thead>
+<tr>
+<th>ประเภท</th>
+<th>วิธีแก้</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SMS Code</strong></td>
+<td>ใช้เบอร์ที่ผูกไว้ — รอรับ SMS</td>
+</tr>
+<tr>
+<td><strong>Authenticator App</strong></td>
+<td>ใช้ Google Authenticator / Authy</td>
+</tr>
+<tr>
+<td><strong>Email Code</strong></td>
+<td>เช็คอีเมลที่ผูกกับ Facebook</td>
+</tr>
+<tr>
+<td><strong>Trusted Contacts</strong></td>
+<td>ให้เพื่อนที่ตั้งไว้ส่ง code</td>
+</tr>
+<tr>
+<td><strong>Login Alert (Approve)</strong></td>
+<td>กด "This was me" ในแอพ Facebook</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>คำแนะนำ:</strong> ถ้าเป็นไปได้ ให้ปิด 2FA สำหรับบัญชีที่ใช้กับ Automation — หรือใช้ Authenticator App ที่เข้าถึงได้ง่าย</p>
+</blockquote>
+<hr />
+<h2 id="checkpoint">เทคนิคการล็อกอินให้รอด (ไม่โดน Checkpoint)</h2>
+<h3 id="3">🎯 กฎ 3 ข้อ:</h3>
+<ol>
+<li><strong>เลียนแบบมนุษย์ — เสมอ</strong></li>
+<li>อย่ากดเร็วเกินไป</li>
+<li>เลื่อนเมาส์แบบไม่เป็นเส้นตรง</li>
+<li>
+<p>เว้นจังหวะระหว่างคลิก</p>
+</li>
+<li>
+<p><strong>รักษาสภาพแวดล้อม</strong></p>
+</li>
+<li>ใช้ Proxy เดิมทุกครั้ง</li>
+<li>ใช้ Browser Fingerprint เดิม</li>
+<li>
+<p>อย่าเปลี่ยนอุปกรณ์บ่อย</p>
+</li>
+<li>
+<p><strong>สะสมประวัติก่อน</strong></p>
+</li>
+<li>หลังจากล็อกอินครั้งแรก → ไถฟีด 10-15 นาที</li>
+<li>Like 1-2 โพสต์</li>
+<li>Logout → Login ใหม่ใน 1-2 ชั่วโมง</li>
+<li>ทำแบบนี้ 2-3 รอบ → Facebook เริ่มเชื่อถืออุปกรณ์นี้</li>
+</ol>
+<hr />
+<h2 id="facebook_1">การผูก Facebook เข้ากับโปรไฟล์ — วิธีที่ถูกต้อง</h2>
+<h3 id="warm-up">🆕 การสร้างบัญชีใหม่ + Warm-up:</h3>
+<div class="codehilite"><pre><span></span><code>วันที่ 1-3:   ล็อกอินอย่างเดียว + ไถ Feed + Like 2-3 โพสต์
+วันที่ 4-5:   เพิ่มเพื่อน 1-2 คน + แชร์ 1 โพสต์
+วันที่ 6-7:   คอมเมนต์ 1-2 โพสต์ + เข้ากลุ่ม
+วันที่ 8-14:  เพิ่มเพื่อน 3-5 คน/วัน + โพสต์ 1 ครั้ง/วัน
+วันที่ 15+:   เริ่ม Automation เบาๆ (ห้ามหนัก!)
+</code></pre></div>
+
+<blockquote>
+<p>⚠️ <strong>ห้าม:</strong> สร้างบัญชี → เพิ่มเพื่อน 50 คน → โพสต์ 10 กลุ่ม ในวันเดียว = <strong>แบนแน่นอน 100%</strong></p>
+</blockquote>
+<hr />
+<h1 id="part-4">PART 4</h1>
+<h1 id="captcha">🤖 แก้ปัญหาเรื่อง Captcha</h1>
+<h1 id="run-script">เวลาล็อกอินหรือ Run Script</h1>
+<hr />
+<h2 id="captcha_1">Captcha คืออะไร — ทำไมถึงเจอ?</h2>
+<ul>
+<li>Facebook ใช้ Captcha เพื่อตรวจสอบว่าเป็นมนุษย์</li>
+<li><strong>สาเหตุที่เจอบ่อย:</strong></li>
+<li>เปลี่ยน IP/Proxy บ่อย</li>
+<li>กดเร็วเกินไป (เหมือนบอท)</li>
+<li>เข้าสู่ระบบจากอุปกรณ์ใหม่</li>
+<li>ทำกิจกรรมผิดปกติ (สแปม, เพิ่มเพื่อนเร็วเกิน)</li>
+<li>Proxy คุณภาพต่ำ (Datacenter)</li>
+</ul>
+<hr />
+<h2 id="captcha-facebook">ประเภท Captcha ที่เจอใน Facebook</h2>
+<table>
+<thead>
+<tr>
+<th>ประเภท</th>
+<th>ลักษณะ</th>
+<th style="text-align: center;">ระดับความยาก</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Checkbox</strong></td>
+<td>"I am not a robot" ☑️</td>
+<td style="text-align: center;">⭐</td>
+</tr>
+<tr>
+<td><strong>Image Challenge</strong></td>
+<td>เลือกรูปที่มีรถเมล์/ไฟจราจร</td>
+<td style="text-align: center;">⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Photo ID</strong></td>
+<td>อัพโหลดรูปบัตรประชาชน</td>
+<td style="text-align: center;">⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Video Selfie</strong></td>
+<td>อัดวิดีโอหน้าตัวเอง</td>
+<td style="text-align: center;">⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Phone Verify</strong></td>
+<td>ยืนยันเบอร์โทรศัพท์</td>
+<td style="text-align: center;">⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="captcha_2">วิธีแก้ Captcha — จากง่ายไปยาก</h2>
+<h3 id="1-manual-solve">วิธีที่ 1: แก้ด้วยมือ (Manual Solve)</h3>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">เม</span><span class="err">ื่</span><span class="n">อเจอ</span><span class="w"> </span><span class="n">Captcha</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">หย</span><span class="err">ุ</span><span class="n">ดสคร</span><span class="err">ิ</span><span class="n">ปต</span><span class="err">์</span><span class="n">ท</span><span class="err">ั</span><span class="n">นท</span><span class="err">ี</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">แก</span><span class="err">้</span><span class="w"> </span><span class="n">Captcha</span><span class="w"> </span><span class="n">ด</span><span class="err">้</span><span class="n">วยม</span><span class="err">ื</span><span class="n">อในเบราว</span><span class="err">์</span><span class="n">เซอร</span><span class="err">์</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">เม</span><span class="err">ื่</span><span class="n">อผ</span><span class="err">่</span><span class="n">านแล</span><span class="err">้</span><span class="n">ว</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">รอ</span><span class="w"> </span><span class="mf">1</span><span class="o">-</span><span class="mf">2</span><span class="w"> </span><span class="n">นาท</span><span class="err">ี</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">ร</span><span class="err">ั</span><span class="n">นสคร</span><span class="err">ิ</span><span class="n">ปต</span><span class="err">์</span><span class="n">ต</span><span class="err">่</span><span class="n">อ</span>
+</code></pre></div>
+
+<h3 id="2-captcha">วิธีที่ 2: ใช้บริการแก้ Captcha อัตโนมัติ</h3>
+<table>
+<thead>
+<tr>
+<th>บริการ</th>
+<th>ราคา</th>
+<th style="text-align: center;">ความแม่นยำ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2Captcha</strong></td>
+<td>~$0.50/1000</td>
+<td style="text-align: center;">90%+</td>
+</tr>
+<tr>
+<td><strong>Anti-Captcha</strong></td>
+<td>~$0.50/1000</td>
+<td style="text-align: center;">90%+</td>
+</tr>
+<tr>
+<td><strong>CapSolver</strong></td>
+<td>~$0.80/1000</td>
+<td style="text-align: center;">95%+</td>
+</tr>
+<tr>
+<td><strong>CapsMonster</strong></td>
+<td>ใช้ AI</td>
+<td style="text-align: center;">85%+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="captcha-solver-gemlogin">การตั้งค่า Captcha Solver ใน Gemlogin</h2>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">สม</span><span class="err">ั</span><span class="n">ครบ</span><span class="err">ั</span><span class="n">ญช</span><span class="err">ี</span><span class="n">ก</span><span class="err">ั</span><span class="n">บ</span><span class="w"> </span><span class="mf">2</span><span class="n">Captcha</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Anti</span><span class="o">-</span><span class="n">Captcha</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">ร</span><span class="err">ั</span><span class="n">บ</span><span class="w"> </span><span class="n">API</span><span class="w"> </span><span class="n">Key</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">ใส</span><span class="err">่</span><span class="n">ใน</span><span class="w"> </span><span class="n">Gemlogin</span><span class="w"> </span><span class="n">Settings</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Captcha</span><span class="w"> </span><span class="n">Solver</span>
+<span class="mf">4.</span><span class="w"> </span><span class="n">เล</span><span class="err">ื</span><span class="n">อกประเภท</span><span class="p">:</span><span class="w"> </span><span class="n">reCAPTCHA</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">hCaptcha</span>
+<span class="mf">5.</span><span class="w"> </span><span class="n">ต</span><span class="err">ั้</span><span class="n">งค</span><span class="err">่</span><span class="n">า</span><span class="w"> </span><span class="n">Timeout</span><span class="p">:</span><span class="w"> </span><span class="mf">120</span><span class="w"> </span><span class="n">ว</span><span class="err">ิ</span>
+<span class="mf">6.</span><span class="w"> </span><span class="n">ทดสอบด</span><span class="err">้</span><span class="n">วยป</span><span class="err">ุ่</span><span class="n">ม</span><span class="w"> </span><span class="n">Test</span>
+</code></pre></div>
+
+<hr />
+<h2 id="captcha_3">🛡️ ป้องกัน Captcha — ดีกว่าแก้</h2>
+<h3 id="checklist-captcha">Checklist ลดโอกาสเจอ Captcha:</h3>
+<div class="codehilite"><pre><span></span><code>☐ ใช้ Residential/Mobile Proxy (ไม่ใช่ Datacenter)
+☐ ใช้ Proxy เดิมกับโปรไฟล์เดิมตลอด
+☐ ตั้ง Delay ระหว่าง actions (5-15 วิ)
+☐ เลียนแบบ Mouse Movement แบบมนุษย์
+☐ ไม่เปิดหลายโปรไฟล์พร้อมกันบน IP เดียว
+☐ มี Cookie/Cache สะสม (อย่าล้างทุกครั้ง)
+☐ จำกัดจำนวน Action ต่อวัน (ค่อยๆ เพิ่ม)
+☐ สุ่มเวลาในการทำ Activity (ไม่ทำตรงเวลาเป๊ะทุกวัน)
+</code></pre></div>
+
+<hr />
+<h1 id="part-5">PART 5</h1>
+<h1 id="_8">✨ เทคนิคและวิธีอื่นๆ</h1>
+<h1 id="_9">ที่ทำให้การทำงานราบรื่นขึ้น</h1>
+<hr />
+<h2 id="1-browser-fingerprint">เทคนิคที่ 1: Browser Fingerprint — ให้สมจริง</h2>
+<h3 id="fingerprint">ตั้งค่า Fingerprint ให้ตรงกับบัญชี:</h3>
+<div class="codehilite"><pre><span></span><code>☐ User Agent → ตรงกับ OS/Browser ที่สมจริง
+☐ Screen Resolution → 1920x1080 หรือ 1366x768
+☐ Language → ตรงกับประเทศ (เช่น th-TH สำหรับไทย)
+☐ Timezone → ตรงกับ Proxy Location
+☐ Fonts → ติดตั้ง Font ที่จำเป็น
+☐ WebGL → Renderer ตรงกับ GPU ที่สมจริง
+☐ Canvas Fingerprint → Unique แต่สมจริง
+☐ AudioContext → ไม่ถูกบล็อก (สมจริง)
+</code></pre></div>
+
+<blockquote>
+<p>💡 ใน Gemlogin: Profile → Advanced → Fingerprint Settings</p>
+</blockquote>
+<hr />
+<h2 id="2-cookie-management">เทคนิคที่ 2: Cookie Management</h2>
+<h3 id="cookie">กลยุทธ์การจัดการ Cookie:</h3>
+<div class="codehilite"><pre><span></span><code>✅ เก็บ Cookie ไว้ — Facebook เห็นว่าเป็นอุปกรณ์เดิม = น่าเชื่อถือ
+✅ Export Cookie สำรอง — เผื่อ Profile เสีย
+✅ อายุ Cookie ปกติ ~30-90 วัน — ต่ออายุโดยล็อกอินก่อนหมด
+❌ อย่าล้าง Cookie ทุกครั้ง — ยิ่งล้าง ยิ่งดูน่าสงสัย
+</code></pre></div>
+
+<h3 id="cookie_1">วิธีย้าย Cookie ระหว่างโปรไฟล์:</h3>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">Profile</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nb">Exp</span><span class="ow">or</span><span class="n">t</span><span class="w"> </span><span class="n">Cookies</span><span class="w"> </span><span class="p">(</span><span class="n">JSON</span><span class="p">)</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">Profile</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Import</span><span class="w"> </span><span class="n">Cookies</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">ใช</span><span class="err">้</span><span class="w"> </span><span class="n">Proxy</span><span class="w"> </span><span class="n">เด</span><span class="err">ี</span><span class="n">ยวก</span><span class="err">ั</span><span class="n">บ</span><span class="w"> </span><span class="n">Profile</span><span class="w"> </span><span class="n">A</span>
+<span class="mf">4.</span><span class="w"> </span><span class="err">✅</span><span class="w"> </span><span class="n">Facebook</span><span class="w"> </span><span class="n">มองว</span><span class="err">่</span><span class="n">าเป</span><span class="err">็</span><span class="n">นอ</span><span class="err">ุ</span><span class="n">ปกรณ</span><span class="err">์</span><span class="n">เด</span><span class="err">ิ</span><span class="n">ม</span>
+</code></pre></div>
+
+<hr />
+<h2 id="3-activity-pattern">เทคนิคที่ 3: Activity Pattern — เหมือนมนุษย์</h2>
+<h3 id="_10">❌ รูปแบบที่บอททำ → โดนแบน:</h3>
+<div class="codehilite"><pre><span></span><code><span class="mi">08</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Login</span>
+<span class="mi">08</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">05</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Post</span><span class="w"> </span><span class="err">ในกลุ่ม</span><span class="w"> </span><span class="mi">1</span>
+<span class="mi">08</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">10</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Post</span><span class="w"> </span><span class="err">ในกลุ่ม</span><span class="w"> </span><span class="mi">2</span>
+<span class="mi">08</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">15</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Post</span><span class="w"> </span><span class="err">ในกลุ่ม</span><span class="w"> </span><span class="mi">3</span>
+<span class="o">...</span><span class="w"> </span><span class="o">(</span><span class="err">ทุกอย่างเป๊ะตรงเวลา</span><span class="o">,</span><span class="w"> </span><span class="err">ไม่มีพัก</span><span class="o">)</span>
+</code></pre></div>
+
+<h3 id="_11">✅ รูปแบบที่มนุษย์ทำ → ปลอดภัย:</h3>
+<div class="codehilite"><pre><span></span><code><span class="mi">08</span><span class="o">:</span><span class="mi">03</span><span class="o">:</span><span class="mi">21</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Login</span>
+<span class="mi">08</span><span class="o">:</span><span class="mi">05</span><span class="o">:</span><span class="mi">47</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="err">ไถ</span><span class="w"> </span><span class="n">Feed</span>
+<span class="mi">08</span><span class="o">:</span><span class="mi">12</span><span class="o">:</span><span class="mi">33</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Like</span><span class="w"> </span><span class="err">โพสต์</span><span class="w"> </span><span class="mi">1</span>
+<span class="mi">08</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mi">09</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Post</span><span class="w"> </span><span class="err">ในกลุ่ม</span><span class="w"> </span><span class="mi">1</span>
+<span class="mi">08</span><span class="o">:</span><span class="mi">25</span><span class="o">:</span><span class="mi">42</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="err">ไถ</span><span class="w"> </span><span class="n">Feed</span>
+<span class="mi">08</span><span class="o">:</span><span class="mi">31</span><span class="o">:</span><span class="mi">18</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Comment</span>
+<span class="o">...</span><span class="w"> </span><span class="o">(</span><span class="err">เวลาไม่เป๊ะ</span><span class="o">,</span><span class="w"> </span><span class="err">มีพัก</span><span class="o">,</span><span class="w"> </span><span class="err">มีไถ</span><span class="w"> </span><span class="n">Feed</span><span class="o">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="4-profile-rotation">เทคนิคที่ 4: Profile Rotation — ผลัดกันทำงาน</h2>
+<div class="codehilite"><pre><span></span><code>อย่าใช้โปรไฟล์เดียวทำงานหนักทั้งวัน!
+
+โปรไฟล์ A → ทำงาน 08:00-10:00 → พัก (ไถ Feed)
+โปรไฟล์ B → ทำงาน 10:00-12:00 → พัก
+โปรไฟล์ C → ทำงาน 13:00-15:00 → พัก
+โปรไฟล์ A → ทำงาน 15:00-17:00 → พัก
+</code></pre></div>
+
+<p><strong>Benefits:</strong><br />
+- ✅ Facebook เห็นแต่ละโปรไฟล์ Active แค่ช่วงสั้น<br />
+- ✅ ลดความเสี่ยงการโดน Rate Limit<br />
+- ✅ ลดโอกาสเจอ Captcha<br />
+- ✅ ถ้าโปรไฟล์ใดมีปัญหา โปรไฟล์อื่นยังทำงานได้</p>
+<hr />
+<h2 id="5-error-handling">เทคนิคที่ 5: Error Handling — รับมือเมื่อพัง</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Flow การรับมือข้อผิดพลาดที่ดี</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">login_failed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="nx">Stop</span><span class="w"> </span><span class="nx">ทันที</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Log</span><span class="w"> </span><span class="ne">Error</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">ลองใหม่ใน</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="nx">นาที</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">captcha_detected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="nx">Pause</span><span class="w"> </span><span class="nx">Script</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Notify</span><span class="w"> </span><span class="nx">Admin</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Manual</span><span class="w"> </span><span class="nx">Solve</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">proxy_dead</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="nx">Stop</span><span class="w"> </span><span class="nx">Profile</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Switch</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">Backup</span><span class="w"> </span><span class="nb">Proxy</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Retry</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">facebook_checkpoint</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="nx">Stop</span><span class="w"> </span><span class="nx">ทุก</span><span class="w"> </span><span class="nx">Activity</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Manual</span><span class="w"> </span><span class="nx">Recovery</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Wait</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="nx">Hrs</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">rate_limited</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="nx">Wait</span><span class="w"> </span><span class="mf">1</span><span class="o">-</span><span class="mf">2</span><span class="w"> </span><span class="nx">Hrs</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">ลด</span><span class="w"> </span><span class="nx">Activity</span><span class="w"> </span><span class="nx">ลง</span><span class="w"> </span><span class="mf">30</span><span class="o">%</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="6-browser">เทคนิคที่ 6: การตั้งค่า Browser</h2>
+<div class="codehilite"><pre><span></span><code><span class="nt">แนะนำการตั้งค่าใน Gemlogin</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">WebRTC</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Disable non-proxied UDP</span>
+<span class="w">  </span><span class="nt">Canvas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Noise (สุ่มเล็กน้อย)</span>
+<span class="w">  </span><span class="nt">WebGL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Disable / Use Proxy Info</span>
+<span class="w">  </span><span class="nt">Audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Real (ไม่ Disable)</span>
+<span class="w">  </span><span class="nt">Fonts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Default + Locale fonts</span>
+<span class="w">  </span><span class="nt">Geolocation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Use Proxy Location</span>
+<span class="w">  </span><span class="nt">Do Not Track</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enable</span>
+<span class="w">  </span><span class="nt">Flash</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Disable (ตายแล้ว)</span>
+</code></pre></div>
+
+<hr />
+<h1 id="part-6">PART 6</h1>
+<h1 id="_12">🎬 แหล่งวิดีโอสอน</h1>
+<h1 id="troubleshooting">และการ Troubleshooting</h1>
+<hr />
+<h2 id="youtube-tutorials">แหล่งวิดีโอ — Youtube &amp; Tutorials</h2>
+<h3 id="playlists">แนะนำช่อง / Playlists:</h3>
+<table>
+<thead>
+<tr>
+<th>แหล่ง</th>
+<th>เนื้อหา</th>
+<th>ลิงก์</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gemlogin Official</strong></td>
+<td>สอนใช้งานพื้นฐาน-ขั้นสูง</td>
+<td>[รอใส่ลิงก์]</td>
+</tr>
+<tr>
+<td><strong>Multi-Login Tips</strong></td>
+<td>เทคนิค Anti-Detect Browser</td>
+<td>[รอใส่ลิงก์]</td>
+</tr>
+<tr>
+<td><strong>Facebook Automation</strong></td>
+<td>สอนเขียน Script + Workflow</td>
+<td>[รอใส่ลิงก์]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">หัวข้อวิดีโอที่กำลังจะทำเพิ่ม:</h3>
+<div class="codehilite"><pre><span></span><code>📹 เริ่มต้น Gemlogin ใน 10 นาที
+📹 การตั้งค่า Proxy แบบ Step-by-Step
+📹 สร้าง Workflow อัตโนมัติสำหรับ Facebook
+📹 แก้ปัญหา Captcha ที่เจอบ่อย
+📹 วิธีกู้บัญชี Facebook ที่โดน Checkpoint
+📹 เทคนิค Warm-up บัญชีใหม่ให้รอด
+📹 การใช้ Cookie เพื่อให้ Facebook ไว้ใจ
+</code></pre></div>
+
+<hr />
+<h2 id="common-errors-solutions">Common Errors &amp; Solutions</h2>
+<h3 id="proxy-connection-failed">🔴 "Proxy Connection Failed"</h3>
+<div class="codehilite"><pre><span></span><code>สาเหตุ: Proxy ตาย / Proxy หมดอายุ / ตั้งค่าผิด
+วิธีแก้:
+  1. เช็ค Proxy ว่าใช้งานได้ที่ ipinfo.io
+  2. ติดต่อผู้ให้บริการ Proxy
+  3. เปลี่ยน Backup Proxy
+  4. เช็ค Firewall/Antivirus ไม่บล็อก Port
+</code></pre></div>
+
+<h3 id="login-checkpoint-confirm-your-identity">🔴 "Login Checkpoint — Confirm Your Identity"</h3>
+<div class="codehilite"><pre><span></span><code>สาเหตุ:<span class="w"> </span><span class="nv">Facebook</span><span class="w"> </span>สงสัยว่าบัญชีถูกแฮ็ก
+วิธีแก้:
+<span class="w">  </span><span class="mi">1</span>.<span class="w"> </span>หยุดกิจกรรมทั้งหมด<span class="w"> </span><span class="ss">(</span>สำคัญมาก<span class="o">!</span><span class="ss">)</span>
+<span class="w">  </span><span class="mi">2</span>.<span class="w"> </span>ยืนยันตัวตนตามที่<span class="w"> </span><span class="nv">Facebook</span><span class="w"> </span>กำหนด
+<span class="w">  </span><span class="mi">3</span>.<span class="w"> </span>หลังจากผ่าน<span class="w"> </span><span class="nv">Checkpoint</span><span class="w"> </span>→<span class="w"> </span><span class="k">Wait</span><span class="w"> </span><span class="mi">24</span><span class="o">-</span><span class="mi">48</span><span class="w"> </span>ชม.
+<span class="w">  </span><span class="mi">4</span>.<span class="w"> </span>กลับมาแบบเบาๆ<span class="w"> </span>—<span class="w"> </span>ไถ<span class="w"> </span><span class="nv">Feed</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span>วันก่อน
+</code></pre></div>
+
+<h3 id="profile-failed-to-start">🔴 "Profile Failed to Start"</h3>
+<div class="codehilite"><pre><span></span><code>สาเหตุ: Port ทับซ้อน / Chromium พัง / Memory ไม่พอ
+วิธีแก้:
+  1. ปิด Profile อื่นๆ → Restart Gemlogin
+  2. ลองเปิดด้วย Port อื่น
+  3. ล้าง Cache Chromium
+  4. Restart เครื่องคอม
+</code></pre></div>
+
+<hr />
+<h2 id="tools-troubleshooting">Tools แนะนำสำหรับ Troubleshooting</h2>
+<div class="codehilite"><pre><span></span><code>🔧 BrowserLeaks — browserleaks.com
+   → เช็ค WebRTC, Canvas, Font, WebGL
+
+🔧 IPInfo — ipinfo.io
+   → เช็ค IP, Location, ISP
+
+🔧 Pixelscan — pixelscan.net
+   → เช็ค Browser Fingerprint โดยรวม
+
+🔧 F.vision — f.vision
+   → เช็ค Facebook Trust Score (แนวทาง)
+
+🔧 CreepJS — abrahamjuliot.github.io/creepjs
+   → เช็ค Fingerprint ระดับลึก
+</code></pre></div>
+
+<hr />
+<h1 id="part-7">PART 7</h1>
+<h1 id="delay-script">⏱️ การหน่วงเวลา (Delay) กับ Script</h1>
+<h1 id="_14">แนะนำการตั้งค่าที่ถูกต้อง</h1>
+<hr />
+<h2 id="delay">ทำไม Delay ถึงสำคัญ?</h2>
+<blockquote>
+<p>🎯 Facebook มี AI ที่ตรวจจับ Bot จาก <strong>จังหวะการทำงานที่เป๊ะเกินไป</strong></p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>มนุษย์: คลิก → 0.8วิ → พิมพ์ → 1.2วิ → คลิก → 3.5วิ → เลื่อน
+บอท:   คลิก → 0.1วิ → พิมพ์ → 0.1วิ → คลิก → 0.1วิ → เลื่อน
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        Facebook AI: &quot;THIS IS A BOT 🤖&quot; → บล็อก!
+</code></pre></div>
+
+<hr />
+<h2 id="delay-activity">ตาราง Delay แนะนำ — แยกตาม Activity</h2>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th style="text-align: center;">Delay (วินาที)</th>
+<th>หมายเหตุ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Login → Feed</td>
+<td style="text-align: center;">3000-5000ms</td>
+<td>รอนาน — หน้า Feed หนัก</td>
+</tr>
+<tr>
+<td>Feed Scroll</td>
+<td style="text-align: center;">2000-4000ms</td>
+<td>เลื่อนช้าๆ เหมือนคนอ่าน</td>
+</tr>
+<tr>
+<td>Like Post</td>
+<td style="text-align: center;">1000-3000ms</td>
+<td>สุ่ม — บางทีมองนาน บางทีเร็ว</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td style="text-align: center;">3000-8000ms</td>
+<td>ต้องอ่านก่อนเมนต์</td>
+</tr>
+<tr>
+<td>Post in Group</td>
+<td style="text-align: center;">5000-10000ms</td>
+<td>Facebook เช็คเข้มกลุ่ม</td>
+</tr>
+<tr>
+<td>Add Friend</td>
+<td style="text-align: center;">3000-6000ms</td>
+<td>ห้ามรัว — เพิ่มเร็ว = แบน</td>
+</tr>
+<tr>
+<td>Send Message</td>
+<td style="text-align: center;">2000-5000ms</td>
+<td>พิมพ์ + รอคนอ่าน</td>
+</tr>
+<tr>
+<td>Share Post</td>
+<td style="text-align: center;">3000-5000ms</td>
+<td>Share เร็ว = สแปม</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="delay_1">🎲 สุ่ม Delay — กุญแจสำคัญ!</h2>
+<h3 id="_15">❌ ไม่ควรทำ:</h3>
+<div class="codehilite"><pre><span></span><code><span class="nx">wait</span><span class="p">(</span><span class="mf">3000</span><span class="p">);</span><span class="w">  </span><span class="c1">// wait 3 วิเป๊ะๆ ทุกครั้ง ❌</span>
+<span class="nx">wait</span><span class="p">(</span><span class="mf">3000</span><span class="p">);</span><span class="w">  </span><span class="c1">// Facebook จับ Pattern ได้!</span>
+<span class="nx">wait</span><span class="p">(</span><span class="mf">3000</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="_16">✅ ควรทำ:</h3>
+<div class="codehilite"><pre><span></span><code><span class="nx">wait</span><span class="p">(</span><span class="nx">random</span><span class="p">(</span><span class="mf">2500</span><span class="p">,</span><span class="w"> </span><span class="mf">4200</span><span class="p">));</span><span class="w">  </span><span class="c1">// 2.5 - 4.2 วิ</span>
+<span class="nx">wait</span><span class="p">(</span><span class="nx">random</span><span class="p">(</span><span class="mf">1800</span><span class="p">,</span><span class="w"> </span><span class="mf">3500</span><span class="p">));</span><span class="w">  </span><span class="c1">// 1.8 - 3.5 วิ</span>
+<span class="nx">wait</span><span class="p">(</span><span class="nx">random</span><span class="p">(</span><span class="mf">5000</span><span class="p">,</span><span class="w"> </span><span class="mf">8000</span><span class="p">));</span><span class="w">  </span><span class="c1">// 5.0 - 8.0 วิ</span>
+</code></pre></div>
+
+<blockquote>
+<p>💡 <strong>หลักการ:</strong> <code>random(lower, upper)</code> — สุ่มเลขระหว่าง lower และ upper ทุกครั้ง</p>
+</blockquote>
+<hr />
+<h2 id="delay_2">สูตร Delay แยกตามประเภทงาน</h2>
+<h3 id="content-posting">📝 Content Posting:</h3>
+<div class="codehilite"><pre><span></span><code>เปิด<span class="w"> </span><span class="nv">Facebook</span><span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">3000</span><span class="o">-</span><span class="mi">5000</span><span class="ss">)</span>
+เข้ากลุ่ม<span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">2000</span><span class="o">-</span><span class="mi">4000</span><span class="ss">)</span>
+กดสร้างโพสต์<span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">1000</span><span class="o">-</span><span class="mi">3000</span><span class="ss">)</span>
+พิมพ์ข้อความ<span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span>ตัวอักษรละ<span class="w"> </span><span class="mi">50</span><span class="o">-</span><span class="mi">150</span><span class="nv">ms</span><span class="ss">)</span>
+<span class="k">wait</span><span class="w"> </span>ก่อนโพสต์<span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">2000</span><span class="o">-</span><span class="mi">5000</span><span class="ss">)</span>
+กดโพสต์<span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">5000</span><span class="o">-</span><span class="mi">8000</span><span class="ss">)</span>
+เช็คผลโพสต์<span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">3000</span><span class="o">-</span><span class="mi">5000</span><span class="ss">)</span>
+</code></pre></div>
+
+<h3 id="account-warm-up">🧹 Account Warm-up:</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">Login</span><span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">5000</span><span class="o">-</span><span class="mi">10000</span><span class="ss">)</span>
+<span class="nv">Scroll</span><span class="w"> </span><span class="nv">Feed</span><span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">3000</span><span class="o">-</span><span class="mi">6000</span><span class="ss">)</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">3</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span>ครั้ง
+<span class="nv">Like</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="nv">Posts</span><span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">2000</span><span class="o">-</span><span class="mi">5000</span><span class="ss">)</span><span class="w"> </span>ต่อครั้ง
+<span class="k">Wait</span><span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">300000</span><span class="o">-</span><span class="mi">600000</span><span class="ss">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span>พัก<span class="w"> </span><span class="mi">5</span><span class="o">-</span><span class="mi">10</span><span class="w"> </span>นาที
+<span class="nv">Scroll</span><span class="w"> </span>→<span class="w"> </span><span class="k">wait</span><span class="ss">(</span><span class="mi">3000</span><span class="o">-</span><span class="mi">6000</span><span class="ss">)</span>
+<span class="nv">Logout</span><span class="w"> </span>→<span class="w"> </span>จบ
+</code></pre></div>
+
+<hr />
+<h2 id="global-delay-gemlogin">ตั้งค่า Global Delay ใน Gemlogin</h2>
+<div class="codehilite"><pre><span></span><code>Settings → Script Settings → Delay
+
+แนะนำ:
+  Global Min Delay: 1000ms
+  Global Max Delay: 4000ms
+  Typing Speed: 100-200ms ต่อตัวอักษร
+  Mouse Movement: Human-like (Bezier curve)
+  Scrolling: Smooth (ไม่ใช่ Jump Scroll)
+</code></pre></div>
+
+<blockquote>
+<p>🎯 <strong>Tip:</strong> ถ้าใช้หลายสคริปต์ → ตั้ง Global Delay ให้เผื่อไว้ แล้วปรับใน Script เฉพาะจุดที่ต้องเร็ว/ช้าเป็นพิเศษ</p>
+</blockquote>
+<hr />
+<h1 id="part-8">PART 8</h1>
+<h1 id="_17">🔥 เทคนิคเพิ่มเติม</h1>
+<h1 id="warm-facebook">+ การ Warm Facebook อย่างมืออาชีพ</h1>
+<hr />
+<h2 id="warm-up-facebook">Warm-up Facebook — วิธีที่ดีที่สุด</h2>
+<h3 id="0-7">🐣 บัญชีใหม่ (0-7 วัน):</h3>
+<div class="codehilite"><pre><span></span><code>Day 1:   Login → ดู Feed 10 นาที → Logout
+Day 2:   Login → Like 1-2 Posts → ดู Feed 15 นาที
+Day 3:   Login → Like + Comment 1 Post → ดู Feed
+Day 4:   Login → Add 1 Friend → ดู Feed + Like
+Day 5-7: Login → Add 1-2 Friends/day → Like + Comment
+</code></pre></div>
+
+<h3 id="7-30">🐥 บัญชีกลาง (7-30 วัน):</h3>
+<div class="codehilite"><pre><span></span><code>Day 8-14:  Add 2-3 Friends/day → 1 Post → Join 1 Group
+Day 15-21: Add 3-5 Friends/day → 1-2 Posts → Join 2 Groups
+Day 22-30: เริ่ม Automation เบาๆ
+  → โพสต์ 1-2 กลุ่ม/วัน
+  → Comment 2-3 โพสต์/วัน
+</code></pre></div>
+
+<h3 id="30">🐓 บัญชีโตแล้ว (30+ วัน):</h3>
+<div class="codehilite"><pre><span></span><code>Day 31+:  เพิ่ม Activity ได้
+  → โพสต์ 3-5 กลุ่ม/วัน
+  → Comment 5-10/วัน
+  → Add Friend 5-10/วัน
+  → แต่ยังต้องสุ่มเวลา + พักระหว่าง!
+</code></pre></div>
+
+<hr />
+<h2 id="_18">🚫 สิ่งที่ห้ามทำเด็ดขาด</h2>
+<div class="codehilite"><pre><span></span><code>❌ สร้างบัญชี → โพสต์ 10 กลุ่มในวันแรก
+❌ เพิ่มเพื่อน 50+ คนในวันเดียว
+❌ ส่งข้อความ 100+ คนใน 1 ชั่วโมง
+❌ ใช้ Datacenter Proxy
+❌ เปลี่ยน Proxy บัญชีเดิมไปมาตลอดเวลา
+❌ รันหลายโปรไฟล์บน IP เดียวกันพร้อมกัน
+❌ กด Like/Comment/Share รัวๆ ไม่มีพัก
+❌ ใช้ Browser Fingerprint เดิมเป๊ะกับทุกโปรไฟล์
+❌ โพสต์เนื้อหาเดียวกันใน 20 กลุ่มพร้อมกัน
+❌ ละเลย Delay — &quot;ขอแค่ทำงานได้ก็พอ&quot;
+</code></pre></div>
+
+<hr />
+<h2 id="tracking">📊 Tracking — เช็คสุขภาพโปรไฟล์</h2>
+<h3 id="daily-checklist">Daily Checklist:</h3>
+<div class="codehilite"><pre><span></span><code>☐ Proxy OK?
+☐ Login สำเร็จ?
+☐ เจอ Checkpoint/Captcha ไหม?
+☐ Activity สำเร็จกี่ %?
+☐ มี Error อะไรบ้าง?
+☐ Facebook Trust Score (สังเกตจาก: ต้อง verify เบอร์ไหม?
+   โดนให้ confirm identity ไหม? เข้ากลุ่มได้ปกติไหม?)
+</code></pre></div>
+
+<h3 id="weekly-review">Weekly Review:</h3>
+<div class="codehilite"><pre><span></span><code>☐ โปรไฟล์ไหนมีปัญหาบ่อย → พัก, ปรับ Proxy
+☐ โปรไฟล์ไหนทำงานดี → วิเคราะห์ว่าทำไมถึงดี
+☐ ปรับ Strategy ตามผลลัพธ์
+</code></pre></div>
+
+<hr />
+<h2 id="recovery">🛟 Recovery — กู้บัญชีเมื่อโดนแบน</h2>
+<h3 id="_19">ขั้นตอนการกู้บัญชี:</h3>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">หย</span><span class="err">ุ</span><span class="n">ดก</span><span class="err">ิ</span><span class="n">จกรรมท</span><span class="err">ั</span><span class="n">นท</span><span class="err">ี</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">ห</span><span class="err">้</span><span class="n">ามพยายามล</span><span class="err">็</span><span class="n">อกอ</span><span class="err">ิ</span><span class="n">นซ</span><span class="err">้</span><span class="n">ำไปมา</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">รอ</span><span class="w"> </span><span class="mf">24</span><span class="o">-</span><span class="mf">48</span><span class="w"> </span><span class="n">ชม</span><span class="mf">.</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">ให</span><span class="err">้</span><span class="n">ระบบเย</span><span class="err">็</span><span class="n">นลงก</span><span class="err">่</span><span class="n">อน</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">ใช</span><span class="err">้</span><span class="w"> </span><span class="n">Proxy</span><span class="w"> </span><span class="n">เด</span><span class="err">ิ</span><span class="n">ม</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">ห</span><span class="err">้</span><span class="n">ามเปล</span><span class="err">ี่</span><span class="n">ยน</span><span class="err">!</span>
+<span class="mf">4.</span><span class="w"> </span><span class="n">ลองล</span><span class="err">็</span><span class="n">อกอ</span><span class="err">ิ</span><span class="n">นผ</span><span class="err">่</span><span class="n">าน</span><span class="w"> </span><span class="n">m</span><span class="mf">.</span><span class="n">facebook</span><span class="mf">.</span><span class="n">com</span><span class="w"> </span><span class="p">(</span><span class="n">ม</span><span class="err">ื</span><span class="n">อถ</span><span class="err">ื</span><span class="n">อ</span><span class="p">)</span>
+<span class="mf">5.</span><span class="w"> </span><span class="n">ถ</span><span class="err">้</span><span class="n">าข</span><span class="err">ึ้</span><span class="n">น</span><span class="w"> </span><span class="n">Checkpoint</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">ทำตามข</span><span class="err">ั้</span><span class="n">นตอน</span><span class="p">:</span>
+<span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">ย</span><span class="err">ื</span><span class="n">นย</span><span class="err">ั</span><span class="n">นเบอร</span><span class="err">์</span><span class="n">โทรศ</span><span class="err">ั</span><span class="n">พท</span><span class="err">์</span>
+<span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">อ</span><span class="err">ั</span><span class="n">พโหลดร</span><span class="err">ู</span><span class="n">ป</span><span class="w"> </span><span class="p">(</span><span class="n">ถ</span><span class="err">้</span><span class="n">าขอ</span><span class="p">)</span>
+<span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">ย</span><span class="err">ื</span><span class="n">นย</span><span class="err">ั</span><span class="n">นต</span><span class="err">ั</span><span class="n">วตนผ</span><span class="err">่</span><span class="n">านเพ</span><span class="err">ื่</span><span class="n">อนท</span><span class="err">ี่</span><span class="n">ไว</span><span class="err">้</span><span class="n">ใจ</span>
+<span class="mf">6.</span><span class="w"> </span><span class="n">หล</span><span class="err">ั</span><span class="n">งจากผ</span><span class="err">่</span><span class="n">าน</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kr">Wait</span><span class="w"> </span><span class="mf">48</span><span class="w"> </span><span class="n">ชม</span><span class="mf">.</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">กล</span><span class="err">ั</span><span class="n">บมาแบบเบาๆ</span>
+</code></pre></div>
+
+<blockquote>
+<p>⚠️ <strong>สำคัญ:</strong> ถ้าบัญชีโดน Permanently Disabled — แทบกู้ไม่ได้ → เริ่มบัญชีใหม่ดีกว่า</p>
+</blockquote>
+<hr />
+<h2 id="10-gemlogin-automation">🎯 สรุป — 10 กฎทองของ Gemlogin Automation</h2>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="err">️⃣</span><span class="w">  </span><span class="mf">1</span><span class="w"> </span><span class="n">Proxy</span><span class="w"> </span><span class="n">ต</span><span class="err">่</span><span class="n">อ</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="n">Profile</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">ห</span><span class="err">้</span><span class="n">ามแชร</span><span class="err">์</span>
+<span class="mf">2</span><span class="err">️⃣</span><span class="w">  </span><span class="n">ใช</span><span class="err">้</span><span class="w"> </span><span class="n">Residential</span><span class="o">/</span><span class="n">Mobile</span><span class="w"> </span><span class="n">Proxy</span><span class="w"> </span><span class="n">เท</span><span class="err">่</span><span class="n">าน</span><span class="err">ั้</span><span class="n">น</span>
+<span class="mf">3</span><span class="err">️⃣</span><span class="w">  </span><span class="n">ต</span><span class="err">ั้</span><span class="n">งค</span><span class="err">่</span><span class="n">า</span><span class="w"> </span><span class="n">Delay</span><span class="w"> </span><span class="n">ให</span><span class="err">้</span><span class="n">สมจร</span><span class="err">ิ</span><span class="n">ง</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">ส</span><span class="err">ุ่</span><span class="n">มตลอด</span>
+<span class="mf">4</span><span class="err">️⃣</span><span class="w">  </span><span class="n">เล</span><span class="err">ี</span><span class="n">ยนแบบมน</span><span class="err">ุ</span><span class="n">ษย</span><span class="err">์</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">ท</span><span class="err">ุ</span><span class="n">กจ</span><span class="err">ั</span><span class="n">งหวะ</span><span class="w"> </span><span class="n">ท</span><span class="err">ุ</span><span class="n">กการคล</span><span class="err">ิ</span><span class="n">ก</span>
+<span class="mf">5</span><span class="err">️⃣</span><span class="w">  </span><span class="n">Warm</span><span class="o">-</span><span class="n">up</span><span class="w"> </span><span class="n">บ</span><span class="err">ั</span><span class="n">ญช</span><span class="err">ี</span><span class="n">ใหม</span><span class="err">่</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">ไม</span><span class="err">่</span><span class="n">ร</span><span class="err">ี</span><span class="n">บ</span><span class="w"> </span><span class="n">ห</span><span class="err">้</span><span class="n">ามใจร</span><span class="err">้</span><span class="n">อน</span>
+<span class="mf">6</span><span class="err">️⃣</span><span class="w">  </span><span class="n">หม</span><span class="err">ุ</span><span class="n">นเว</span><span class="err">ี</span><span class="n">ยนโปรไฟล</span><span class="err">์</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">อย</span><span class="err">่</span><span class="n">าใช</span><span class="err">้</span><span class="n">ต</span><span class="err">ั</span><span class="n">วเด</span><span class="err">ี</span><span class="n">ยวหน</span><span class="err">ั</span><span class="n">ก</span>
+<span class="mf">7</span><span class="err">️⃣</span><span class="w">  </span><span class="n">เก</span><span class="err">็</span><span class="n">บ</span><span class="w"> </span><span class="n">Cookie</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">อย</span><span class="err">่</span><span class="n">าล</span><span class="err">้</span><span class="n">างท</span><span class="err">ุ</span><span class="n">กคร</span><span class="err">ั้</span><span class="n">ง</span>
+<span class="mf">8</span><span class="err">️⃣</span><span class="w">  </span><span class="n">เจอ</span><span class="w"> </span><span class="n">Captcha</span><span class="o">/</span><span class="n">Checkpoint</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">หย</span><span class="err">ุ</span><span class="n">ดก</span><span class="err">่</span><span class="n">อน</span><span class="w"> </span><span class="n">อย</span><span class="err">่</span><span class="n">าฝ</span><span class="err">ื</span><span class="n">น</span>
+<span class="mf">9</span><span class="err">️⃣</span><span class="w">  </span><span class="n">Track</span><span class="w"> </span><span class="err">&amp;</span><span class="w"> </span><span class="n">Monitor</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">ร</span><span class="err">ู้</span><span class="n">ว</span><span class="err">่</span><span class="n">าอะไรพ</span><span class="err">ั</span><span class="n">งก</span><span class="err">่</span><span class="n">อนสาย</span>
+<span class="err">🔟</span><span class="w">  </span><span class="kr">Cont</span><span class="n">ent</span><span class="w"> </span><span class="n">Unique</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">อย</span><span class="err">่</span><span class="n">าโพสต</span><span class="err">์</span><span class="n">ข</span><span class="err">้</span><span class="n">อความเด</span><span class="err">ิ</span><span class="n">มซ</span><span class="err">้</span><span class="n">ำๆ</span>
+</code></pre></div>
+
+<hr />
+<h1 id="qa">❓ Q&amp;A</h1>
+<h2 id="-">ถาม-ตอบ / แชร์ประสบการณ์</h2>
+<h3 id="_20">คำถามที่พบบ่อย:</h3>
+<p><strong>Q: Warm-up กี่วันถึงจะใช้ Automation ได้?</strong><br />
+→ อย่างน้อย <strong>30 วัน</strong> — เร็วไป = แบน</p>
+<p><strong>Q: Proxy หมดอายุกลางคัน — ทำไง?</strong><br />
+→ หยุดโปรไฟล์นั้นทันที → ต่ออายุ Proxy → รอ 1 ชม. → ค่อยกลับมาใหม่</p>
+<p><strong>Q: 1 เครื่อง ใช้กี่โปรไฟล์ได้?</strong><br />
+→ ไม่จำกัดจำนวนโปรไฟล์ แต่คำนวณ RAM: ~500MB-1GB ต่อโปรไฟล์</p>
+<p><strong>Q: ทำไมบางบัญชีโดนแบนทั้งที่ทำถูกทุกอย่าง?</strong><br />
+→ Facebook มีปัจจัยหลายอย่าง — IP Reputation, Account Age, Behavior Pattern, Content Quality — ปรับทีละปัจจัย</p>
+<p><strong>Q: ใช้ VPN แทน Proxy ได้ไหม?</strong><br />
+→ ❌ ไม่แนะนำ — VPN IP ถูกแชร์โดยคนจำนวนมาก → Reputation แย่ → Facebook บล็อกง่าย</p>
+<hr />
+<h1 id="support">📲 ติดต่อ / Support</h1>
+<div class="codehilite"><pre><span></span><code>📱 Telegram: [ใส่ลิงก์ Telegram]
+📧 Email: [ใส่อีเมล]
+📹 Youtube: [ใส่ลิงก์ช่อง]
+🖥️ Website: [ใส่เว็บไซต์]
+</code></pre></div>
+
+<h2 id="_21">ไฟล์เพิ่มเติม:</h2>
+<ul>
+<li>📄 เอกสารฉบับนี้ (PDF)</li>
+<li>📊 Checklist รายวัน (Google Sheets)</li>
+<li>🎬 ลิงก์วิดีโอสอนแบบ Step-by-Step</li>
+</ul>
+<hr />
+<h1 id="_22">🙏 ขอบคุณครับ</h1>
+<h2 id="gemlogin-training_1">Gemlogin Training</h2>
+<h3 id="3-2026">วันศุกร์ที่ 3 กรกฎาคม 2026</h3>
+<p><strong>"ทำให้ Facebook คิดว่าคุณเป็นมนุษย์ — แล้วคุณจะไม่มีวันโดนบล็อก"</strong></p>
+<hr />
+<blockquote>
+<p>Document generated for Gemlogin Training Session. For questions, contact the Gemlogin team.</p>
+</blockquote>
+</body>
+</html>

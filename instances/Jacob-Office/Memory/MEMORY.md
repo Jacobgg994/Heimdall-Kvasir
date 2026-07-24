@@ -1,0 +1,4 @@
+- [Team Structure & Kvasir Members](team-structure.md) — 8 members (JACOB + 7 Kvasirs), roles, reporting lines
+- [Content Plan Repos](content-plan-repos.md) — 2 repos created 2026-06-30: content-plan + blog-articles
+- [Content Rules & Decisions](content-rules.md) — No QCCAP, no discounts, balanced weekly mix
+- [July 2026 Content Strategy](july-2026-content-strategy.md) — Overall direction, key decisions, approach
