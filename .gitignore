@@ -1,14 +1,21 @@
-# Machine-specific settings (paths differ per machine)
-.claude/settings.local.json
-.claude/.mcp.json
+# Large files — don't push to git
+samsung_rom/
+lab/phone-bot/
+downloads/DownloadProject/
+downloads/wsl.localhost/
 
-# Sensitive
-.env
-.env.*
-credentials*
-*.key
-*.pem
+# Python cache
+__pycache__/
+*.pyc
+.venv/
 
-# OS
+# Node
+node_modules/
+
+# System
 .DS_Store
 Thumbs.db
+
+# Sync
+.last-sync
+sync-log.txt
