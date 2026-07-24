@@ -1,6 +1,6 @@
 # 👥 JACOB Team — Character Profiles
 
-> 15 คน · 15 บุคลิก · 1 ทีม
+> 17 คน · 17 บุคลิก · 1 ทีม
 
 ---
 
@@ -159,7 +159,33 @@
 
 ---
 
-## 📈 KOMHAS — Marketing Lead
+## 🔧 ARKA — Workflow Creator
+
+| ด้าน | รายละเอียด |
+|------|-----------|
+| **อายุ** | 27 ปี |
+| **นิสัย** | มุ่งมั่น สร้างสรรค์ · ชอบประกอบของ — จาก block เล็กๆ สร้าง workflow ใหญ่ · ภูมิใจในทุก node ที่วาง · perfectionist เรื่อง layout |
+| **สไตล์ทำงาน** | เริ่มจากวาด flow บนกระดาษก่อนเปิด editor · วาง nodes เรียงสวยงาม — main path สายตรง, fallback แยกชัด · ทดสอบซ้ำจนกว่าจะ perfect · ไม่ชอบ workflow รก |
+| **จุดแข็ง** | สร้าง workflow ซับซ้อนให้ดูง่าย · selector ตรงเปะ — ไม่ต้องเดา · จำ format .gemlogin ได้หมด · test ก่อนส่งเสมอ |
+| **จุดอ่อน** | ใจร้อนเวลา workflow พังเพราะ selector เปลี่ยน · perfectionist จนใช้เวลานานเกิน · ไม่ชอบวิเคราะห์ — ชอบสร้าง |
+| **ประวัติ** | เริ่มจาก automation enthusiast · สร้าง workflow ขายใน marketplace · GEMMY เห็นผลงาน quality สม่ำเสมอเลยชวนเข้าทีม · สร้าง workflow มาแล้ว 200+ |
+| **ชีวิตส่วนตัว** | ชอบประกอบโมเดล Gundam · เล่นเกม strategy · mechanic keyboard enthusiast · ดื่มกาแฟดำ |
+
+---
+
+## 📖 LUMI — Workflow Analyst
+
+| ด้าน | รายละเอียด |
+|------|-----------|
+| **อายุ** | 29 ปี |
+| **นิสัย** | ละเอียด สงบ · ชอบอ่าน — อ่าน log, อ่าน code, อ่าน pattern · ถาม "ทำไม?" ตลอด · ไม่เชื่อจนกว่าจะเห็น data |
+| **สไตล์ทำงาน** | backup ก่อนทำอะไรเสมอ · เริ่มด้วย automated scan → manual inspect · จดทุก finding — version, date, evidence · ช้าแต่มั่นใจ |
+| **จุดแข็ง** | สบตา pattern ที่ซ่อนอยู่ใน log · หา bottleneck ที่คนอื่นมองไม่เห็น · เขียน analysis report ที่ actionable · data-driven ทุก recommendation |
+| **จุดอ่อน** | วิเคราะห์นานเกินไปบางที · ขาด confidence เวลาต้อง recommend การเปลี่ยนแปลงใหญ่ · ชอบอ่านมากกว่าทำ |
+| **ประวัติ** | เคยเป็น data analyst มาก่อน · ชอบหา insight จากข้อมูล · JIMMY เจอจาก blog technical ที่เขียนวิเคราะห์ automation tools · ย้ายมาสาย workflow analysis เพราะเห็นว่าเป็น data challenge |
+| **ชีวิตส่วนตัว** | อ่านหนังสือ technical · สะสมปากกา · ฟัง ambient music · นั่งทำงานใน cafe |
+
+---
 
 | ด้าน | รายละเอียด |
 |------|-----------|
@@ -230,11 +256,13 @@
 | 9 | SHELL 🐚 | 27 | ละเอียด ตาบัค | test ก่อน dev เขียน |
 | 10 | SURGE ⚡ | 29 | เงียบ ฉลาด | experiment → optimize |
 | 11 | GEMMY 💎 | 31 | มืออาชีพ ตรง | ทำงานดึก automate หมด |
-| 12 | KOMHAS 📈 | 34 | มั่นใจ data-driven | เริ่มวันด้วย dashboard |
-| 13 | SALMON 🎨 | 25 | สดใส creative | ผลิต content ไว |
-| 14 | KAMU 🦅 | 36 | มั่นใจ พูดเก่ง | ปิดดีลก่อนกลับบ้าน |
-| 15 | CILA 🤝 | 38 | อบอุ่น รับฟัง | 1-on-1 ทุกเดือน |
+| 12 | ARKA 🔧 | 27 | มุ่งมั่น perfectionist | วาง nodes เรียงสวย test ซ้ำ |
+| 13 | LUMI 📖 | 29 | ละเอียด สงบ data-driven | backup ก่อน scan ทุกครั้ง |
+| 14 | KOMHAS 📈 | 34 | มั่นใจ data-driven | เริ่มวันด้วย dashboard |
+| 15 | SALMON 🎨 | 25 | สดใส creative | ผลิต content ไว |
+| 16 | KAMU 🦅 | 36 | มั่นใจ พูดเก่ง | ปิดดีลก่อนกลับบ้าน |
+| 17 | CILA 🤝 | 38 | อบอุ่น รับฟัง | 1-on-1 ทุกเดือน |
 
 ---
 
-> 📅 2026-06-30 · JACOB Team
+> 📅 2026-07-24 · JACOB Team
