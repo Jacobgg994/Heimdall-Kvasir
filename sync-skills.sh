@@ -12,7 +12,7 @@
 
 set -e
 
-AIPROJECT="$HOME/AIproject"
+AIPROJECT="$HOME/Jacob-Office"
 CLAUDE_SKILLS="$HOME/.claude/skills"
 AUTO_MEMORY="$HOME/.claude/projects/-home-admin-jacob/memory"
 LOCK_FILE="/tmp/ai-fullsync.lock"

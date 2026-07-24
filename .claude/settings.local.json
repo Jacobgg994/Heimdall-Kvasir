@@ -12,7 +12,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/AIproject/sync-skills.sh sync",
+            "command": "bash ~/Jacob-Office/sync-skills.sh sync",
             "async": true
           }
         ]
